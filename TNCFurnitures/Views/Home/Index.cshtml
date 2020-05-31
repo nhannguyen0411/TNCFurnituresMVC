@@ -1,16 +1,44 @@
-﻿@{
+﻿
+<link href="~/Styles/home.css" rel="stylesheet" />
+<link href="~/Styles/default.css" rel="stylesheet" />
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="row carousel-holder" style="margin:0 !important;">
+    <div class="col-md-12" style="padding:0 !important;">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="slide-image slider-img" src="~/Images/slider-3.jpg" />
+                </div>
+                <div class="item">
+                    <img class="slide-image slider-img" src="~/Images/slider-2.jpg"/>
+                </div>
+                <div class="item">
+                    <img class="slide-image slider-img" src="~/Images/slider-1.jpg" />
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
+        <img src="~/Images/account.png" style="color:red; width:24px; height:24px;" />
         <p>
             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
             enables a clean separation of concerns and gives you full control over markup

@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Styles/fixed-top.css")
+    @Styles.Render("~/Styles/layout.css")
+    @Styles.Render("~/Styles/default.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="navbar-fixed-top">
         <div class="container-fluid item mb-0 br-0">
-            <div class="row w-100 d-flex align-items-center">
+            <div class="row w-100 d-flex align-items-center" style="margin-left: 0; margin-right: 0">
                 <div class="contact col-lg-4">
                     <div class="icon-ctn ">
                         <img src="~/Images/mail.png" class="top-icon" />
@@ -19,11 +20,11 @@
                     </div>
                     <div class="icon-ctn">
                         <img src="~/Images/phone.png" class="top-icon" />
-                        <p class="contact-text">+8485 437 4769</p>
+                        <p class="contact-text">+0123456789</p>
                     </div>
                 </div>
                 <div class="logo-ctn col-lg-4">
-                    <img src="~/Images/logo.png" class="logo" />
+                    <img src="~/Images/new-logo.png" class="logo"/>
                 </div>
                 <div class="options col-lg-4">
                     <a href='@Url.Action("Index", "Home")'>
@@ -46,15 +47,15 @@
                 <li class="item-nav">@Html.ActionLink("Sofa", "About", "Home")</li>
                 <li class="item-nav">@Html.ActionLink("Wardrobe", "Contact", "Home")</li>
                 <li class="item-nav">@Html.ActionLink("Lamp", "Contact", "Home")</li>
+                <li class="item-nav">@Html.ActionLink("Carpet", "Contact", "Home")</li>
             </ul>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid" style="padding:0 !important; margin:0 !important;">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    </div>
+    <div class="footer">
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

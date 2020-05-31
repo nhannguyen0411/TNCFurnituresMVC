@@ -1,8 +1,13 @@
-﻿.item {
+﻿body {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #5D2A42;
+    background-color: rgba(0,0,0,0.7);
 }
 
 .contact {
@@ -30,12 +35,22 @@
 }
 
 .logo {
-    width: 15em;
-    height: 10rem;
+    width: 15rem;
+    height: 6rem;
 }
 
 .options {
     text-align: right;
+}
+
+.options a {
+    padding: 1rem;
+    text-align: center;
+    transition: all .3s;
+}
+
+.options a:hover img {
+    color: red;
 }
 
 .top-icon {
@@ -44,7 +59,6 @@
 }
 
 .top-right-icon {
-    margin-left: 3rem;
     height: 24px;
     width: 24px;
 }
@@ -64,22 +78,24 @@
     transition: all .3s;
 }
 
-.mb-0 {
-    margin-bottom: 0;
+.item-nav:hover a {
+    color: #56cfe1;
 }
 
-.br-0 {
-    border-radius: 0
+.nav > li > a:hover {
+    background-color: transparent;
 }
 
-.w-100 {
-    width: 100%
+.content {
+    margin-top: 8.1rem;
 }
 
-.d-flex {
-    display: flex
+.footer {
+    background-color: #5D2A42;
+    height: 10rem;
 }
 
-.align-items-center {
-    align-items: center
+.row {
+    margin-left: 0!important;
+    margin-right: 0!important;
 }
