@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TNCFurnitures.Models.LOAINOITHAT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đây là một trang</h2>
+@foreach(var item in Model)
+{
+    <p>@item.TenLoaiNT</p>
+}
+

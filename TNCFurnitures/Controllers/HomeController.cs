@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TNCFurnitures.Models;
 
 namespace TNCFurnitures.Controllers
 {
     public class HomeController : Controller
     {
+        dbQLFurnituresDataContext db = new dbQLFurnituresDataContext();
         public ActionResult Index()
         {
-            return View();
+            var chude = from cd in db.LOAINOITHATs select cd;
+            return View(chude);
         }
 
         public ActionResult About()

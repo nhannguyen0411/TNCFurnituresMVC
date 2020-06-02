@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<TNCFurnitures.Models.LOAINOITHAT>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,57 +7,1084 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Styles/layout.css")
-    @Styles.Render("~/Styles/default.css")
+    <link href="~/Styles/header1.css" rel="stylesheet" />
+    <link href="~/Styles/header2.css" rel="stylesheet" />
+    <link href="~/Styles/not-footer.css" rel="stylesheet" />
+    <link href="~/Styles/default.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/216cd63880.js"></script>
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar-fixed-top">
-        <div class="container-fluid item mb-0 br-0">
-            <div class="row w-100 d-flex align-items-center" style="margin-left: 0; margin-right: 0">
-                <div class="contact col-lg-4">
-                    <div class="icon-ctn ">
-                        <img src="~/Images/mail.png" class="top-icon" />
-                        <p class="contact-text">support@tnc.com</p>
-                    </div>
-                    <div class="icon-ctn">
-                        <img src="~/Images/phone.png" class="top-icon" />
-                        <p class="contact-text">+0123456789</p>
-                    </div>
+    <div class="container-fluid p-0 position-fixed header">
+        <div id="header-gone" class="container-fluid header-1">
+            <div class="d-flex py-3 flex-column justify-content-md-between flex-md-row row">
+                <div class="d-flex col-lg-4 col-md-6 col-sm-12 justify-content-center justify-content-md-start">
+                    <a href="#" class="text-white transition">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="pl-3">+0123456789</span>
+                    </a>
+                    <a href="#" class="ml-6 text-white transition">
+                        <i class="far fa-envelope"></i>
+                        <span class="pl-3">claue@domain.com</span>
+                    </a>
                 </div>
-                <div class="logo-ctn col-lg-4">
-                    <img src="~/Images/new-logo.png" class="logo"/>
+                <div class="pt-md-0 d-flex d-md-flex text-white col-lg-4 col-md-6 col-sm-12 justify-content-md-end justify-content-center justify-content-lg-center">
+                    <span>Summer sale discount off <span class="text-danger">50%!</span> <a href="#" class="text-white transition">Shop Now</a></span>
                 </div>
-                <div class="options col-lg-4">
-                    <a href='@Url.Action("Index", "Home")'>
-                        <img src="~/Images/account.png" class="top-icon top-right-icon" />
-                    </a>
-                    <a href='@Url.Action("Index", "Home")'>
-                        <img src="~/Images/cart.png" class="top-icon top-right-icon" />
-                    </a>
-                    <a href='@Url.Action("Index", "Home")'>
-                        <img src="~/Images/order.png" class="top-icon top-right-icon" />
-                    </a>
+                <div class="d-none d-lg-flex col-lg-4 justify-content-end">
+                    <ul class="dropdown">
+                        <li class="has-menu">
+                            <div class="text-white hover-blue cursor-pointer transition">
+                                USD
+                                <i class="fas fa-caret-down pl-03"></i>
+                            </div>
+                            <ul class="submenu h1-submenu">
+                                <li><a href="#" class="text-secondary h1-submenu-link transition">EUR - Euro</a></li>
+                                <li><a href="#" class="text-secondary h1-submenu-link transition">SAR - Saudi Riyal</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-menu ml-175">
+                            <div class="text-white hover-blue cursor-pointer transition">
+                                Austria
+                                <i class="fas fa-caret-down pl-03"></i>
+                            </div>
+                            <ul class="submenu submenu-2 h1-submenu">
+                                <li class="d-flex align-items-center">
+                                    <a href="#" class="text-secondary h1-submenu-link transition">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg" class="submenu-img">English
+                                    </a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <a href="#" class="text-secondary h1-submenu-link transition">
+                                        <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" class="submenu-img">French
+                                    </a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <a href="#" class="text-secondary h1-submenu-link transition">
+                                        <img src="https://cdn.countryflags.com/thumbs/germany/flag-400.png" class="submenu-img">German
+                                    </a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <a href="#" class="text-secondary h1-submenu-link transition">
+                                        <img src="https://cdn.countryflags.com/thumbs/italy/flag-400.png" class="submenu-img">Italy
+                                    </a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <a href="#" class="text-secondary h1-submenu-link transition">
+                                        <img src="https://cdn.countryflags.com/thumbs/spain/flag-400.png" class="submenu-img">Spain
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="container-fluid item br-0 below-block">
-            <ul class="nav navbar-nav">
-                <li class="item-nav">@Html.ActionLink("Bed", "Index", "Home")</li>
-                <li class="item-nav">@Html.ActionLink("Desk", "Index", "Home")</li>
-                <li class="item-nav">@Html.ActionLink("Chair", "Index", "Home")</li>
-                <li class="item-nav">@Html.ActionLink("Sofa", "About", "Home")</li>
-                <li class="item-nav">@Html.ActionLink("Wardrobe", "Contact", "Home")</li>
-                <li class="item-nav">@Html.ActionLink("Lamp", "Contact", "Home")</li>
-                <li class="item-nav">@Html.ActionLink("Carpet", "Contact", "Home")</li>
+    </div>
+
+    <div class="container-fluid header-2">
+        <div class="header-2-child d-flex justify-content-between">
+            <div class="header-2-bar d-lg-none d-flex text-white align-items-center justify-content-start col-4 p-0">
+                <i id="bar" class="fas fa-bars cursor-pointer"></i>
+            </div>
+            <div class="d-flex align-items-center col-lg-3 justify-content-lg-start justify-content-center p-0 col-4">
+                <img src="http://themes.magesolution.com/claue/m2/pub/media/logo/stores/12/claue_furniture.png">
+            </div>
+            <div class="header-2-navigation d-none d-lg-flex col-lg-6 justify-content-lg-center">
+                <ul class="dropdown d-flex">
+                    @foreach (var item in Model)
+                    {
+                        <li id="home" class="has-menu position-relative cursor-pointer">
+                            <a href="@Url.Action("Desk", "FurnitureStore", new { id = item.MaLoaiNT })" class="hover text-white transition">
+                                @item.TenLoaiNT
+                            </a>
+                            <div id="sub-menu" class="header-2-submenu submenu home-submenu position-absolute">
+                                <div class="d-flex bg-white p-4">
+                                    <div>
+                                        <ul class="home-content">
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Dark Version</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Minmal</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Classic</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Video Banner</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Product Categories</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Lookbook</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Static Image</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Left Side</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Boxed</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Minmal RTL</a></li>
+                                            <li>
+                                                <a href="#" class="has-badge text-secondary  border-bottom transition position-relative">
+                                                    Home Instagram Shop
+                                                    <span class="hd-item-badge badge badge-pill badge-danger position-absolute">Hot</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#" class="text-secondary transition">Home Minmal Disable Hover Effect</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pl-4">
+                                        <ul class="home-content">
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Parallax</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Market</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Digital</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Shoes</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Watches</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Jewelry</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Cosmetics</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Glasses</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Furniture</a></li>
+                                            <li><a href="#" class="text-secondary border-bottom transition">Home Handmade</a></li>
+                                            <li><a href="#" class="text-secondary transition">Home Decor</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    @*<li id="home" class="has-menu position-relative cursor-pointer">
+                        <a href="@Url.Action("Desk", "FurnitureStore", new { id = item.MaLoaiNT })" class="hover text-white transition">
+                            @item.TenLoaiNT
+                        </a>
+                        <div id="sub-menu" class="header-2-submenu submenu home-submenu position-absolute">
+                            <div class="d-flex bg-white p-4">
+                                <div>
+                                    <ul class="home-content">
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Dark Version</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Minmal</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Classic</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Video Banner</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Product Categories</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Lookbook</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Static Image</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Left Side</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Boxed</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Minmal RTL</a></li>
+                                        <li>
+                                            <a href="#" class="has-badge text-secondary  border-bottom transition position-relative">
+                                                Home Instagram Shop
+                                                <span class="hd-item-badge badge badge-pill badge-danger position-absolute">Hot</span>
+                                            </a>
+                                        </li>
+                                        <li><a href="#" class="text-secondary transition">Home Minmal Disable Hover Effect</a></li>
+                                    </ul>
+                                </div>
+                                <div class="pl-4">
+                                    <ul class="home-content">
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Parallax</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Market</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Digital</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Shoes</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Watches</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Jewelry</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Cosmetics</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Glasses</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Furniture</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Home Handmade</a></li>
+                                        <li><a href="#" class="text-secondary transition">Home Decor</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-menu position-relative cursor-pointer">
+                        <a href="#" class="hover text-white position-relative transition">
+                            Shop
+                            <span class="hd-badge badge badge-pill badge-info position-absolute">New</span>
+                        </a>
+                        <div class="header-2-submenu submenu shop-submenu position-absolute">
+                            <div class="shop-content p-4 bg-white">
+                                <div class="shop-top-content border-bottom pb-3">
+                                    <p class="h5 pb-2">TOP CONTENT</p>
+                                    <div class="text-secondary">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                        cillum dolore eu fugiat nulla pariatur.
+                                    </div>
+                                </div>
+                                <div class="shop-main d-flex border-bottom pt-4 pb-2">
+                                    <div class="categories">
+                                        <p class="h6 border-bottom pb-2 m-0">CATEGORIES</p>
+                                        <div class="d-flex">
+                                            <div>
+                                                <ul class="shop-content p-0">
+                                                    <li><a href="#" class="text-secondary border-bottom transition">1 Column</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">2 Column Lefts</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">2 Column Rights</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">3 Columns</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">2 Product Per Row</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">3 Product Per Row</a></li>
+                                                    <li><a href="#" class="text-secondary transition">4 Product Per Row</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="pl-4">
+                                                <ul class="shop-content">
+                                                    <li><a href="#" class="text-secondary border-bottom transition">5 Product Per Row</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">6 Product Per Row</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">7 Product Per Row</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">8 Product Per Row</a></li>
+                                                    <li><a href="#" class="text-secondary border-bottom transition">Ajax Load More Product</a></li>
+                                                    <li>
+                                                        <a href="#" class="has-badge text-secondary position-relative transition">
+                                                            Products Hover Effect 2
+                                                            <span class="hd-item-badge badge badge-pill badge-info position-absolute">New</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collection pl-4">
+                                        <p class="h6 border-bottom pb-2 m-0">COLLECTION</p>
+                                        <div>
+                                            <ul class="shop-content p-0">
+                                                <li><a href="#" class="text-secondary border-bottom transition">Collection Grid Layout</a></li>
+                                                <li><a href="#" class="text-secondary border-bottom transition">Collection Masonry Layout</a></li>
+                                                <li><a href="#" class="text-secondary border-bottom transition">Collection Lookbook Layout</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="shop-img pl-4">
+                                        <div class="shop-img-content position-relative">
+                                            <img class="" src="http://themes.magesolution.com/claue/m2/pub/media/wysiwyg/banner_menu.jpg">
+                                            <div class="border-white position-absolute"></div>
+                                            <a href="#" class="position-absolute text-white text-center shop-img-link font-weight-bold">Accessories</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shop-bottom-content pt-4">
+                                    <p class="h5 pb-2">BOTTOM CONTENT</p>
+                                    <div class="text-secondary">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                        cillum dolore eu fugiat nulla pariatur.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-menu position-relative cursor-pointer">
+                        <a href="#" class="has-badge hover text-white position-relative transition">
+                            Product
+                        </a>
+                        <div class="header-2-submenu submenu product-submenu position-absolute">
+                            <div class="d-flex bg-white p-4">
+                                <div>
+                                    <ul class="product-content">
+                                        <li><a href="#" class="font-weight-bold text-dark border-bottom transition">PRODUCT DETAILS FEATURES</a></li>
+                                        <li>
+                                            <a href="#" class="has-badge position-relative text-secondary border-bottom transition">
+                                                Product With Slide Gallery
+                                                <span class="hd-item-badge badge badge-pill badge-info position-absolute">New</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="has-badge position-relative text-secondary border-bottom transition">
+                                                Product With Image 360 Deg
+                                                <span class="hd-item-badge badge badge-pill badge-danger position-absolute">Hot</span>
+                                            </a>
+                                        </li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Simple Produt</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Deal Product</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Custom Options Product</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Group Product</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Bundle Product</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Configuable Product</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Video</a></li>
+                                        <li><a href="#" class="text-secondary transition">Lookbook In Product</a></li>
+                                    </ul>
+                                </div>
+                                <div class="pl-4">
+                                    <ul class="product-content">
+                                        <li><a href="#" class="font-weight-bold text-dark border-bottom transition">PRODUCT DETAILS LAYOUT</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Tab</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Accordion</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Accordion 2</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Thumb At Bottom</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Vertical Thumb</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product Gallery Grid</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Sticky Info</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Sticky Info 2</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Product With Sidebar</a></li>
+                                        <li><a href="#" class="text-secondary transition">Product With Gallery Lightbox</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-menu position-relative cursor-pointer">
+                        <a href="#" class="has-badge hover text-white position-relative transition">
+                            Pages
+                        </a>
+                        <div class="header-2-submenu submenu home-submenu position-absolute">
+                            <div class="bg-white">
+                                <ul class="one-col-content">
+                                    <li class="pg-has-menu position-relative">
+                                        <a href="#" class="text-secondary border-bottom transition">Blog</a>
+                                        <div class="pg-submenu bg-white position-absolute">
+                                            <ul>
+                                                <li><a href="#" class="text-secondary border-left border-bottom transition">Blog List</a></li>
+                                                <li><a href="#" class="text-secondary border-left border-bottom transition">Blog Category</a></li>
+                                                <li><a href="#" class="text-secondary border-left border-bottom transition">Blog with Tag</a></li>
+                                                <li><a href="#" class="text-secondary border-left border-bottom transition">Blog Details</a></li>
+                                                <li><a href="#" class="text-secondary border-left transition">Lookbook In Single Blog Post</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="pg-has-menu position-relative">
+                                        <a href="#" class="text-secondary border-bottom transition">Portfolio</a>
+                                        <div class="pg-submenu bg-white position-absolute">
+                                            <ul>
+                                                <li><a href="#" class="text-secondary border-left border-bottom transition">Portfolio</a></li>
+                                                <li><a href="#" class="text-secondary border-left transition">Portfolio Detail</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="pg-has-menu position-relative">
+                                        <a href="#" class="text-secondary border-bottom transition">Store Locator</a>
+                                        <div class="pg-submenu bg-white position-absolute">
+                                            <ul>
+                                                <li><a href="#" class="text-secondary border-left border-bottom transition">Store Locator</a></li>
+                                                <li><a href="#" class="text-secondary border-left transition">Store Detail</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="pg-has-menu position-relative">
+                                        <a href="#" class="text-secondary border-bottom transition">Shop By Brand</a>
+                                        <div class="pg-submenu bg-white position-absolute">
+                                            <ul>
+                                                <li><a href="#" class="text-secondary border-left border-bottom transition">Brands List</a></li>
+                                                <li><a href="#" class="text-secondary border-left transition">Brand Detail</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="text-secondary border-bottom transition">About Us</a></li>
+                                    <li><a href="#" class="text-secondary border-bottom transition">Contact Us</a></li>
+                                    <li><a href="#" class="text-secondary border-bottom transition">404 Page</a></li>
+                                    <li><a href="#" class="text-secondary transition">Size Guide</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-menu position-relative cursor-pointer">
+                        <a href="#" class="has-badge hover text-white position-relative transition">
+                            Elements
+                        </a>
+                        <div class="header-2-submenu submenu elements-submenu position-absolute">
+                            <div class="d-flex bg-white p-4">
+                                <div>
+                                    <ul class="elements-content">
+                                        <li><a href="#" class="font-weight-bold text-dark border-bottom transition">HEADER</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 1</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 2</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 3</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 4</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 5</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 6</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 7</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 8</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Header Version 9</a></li>
+                                        <li><a href="#" class="text-secondary transition">Header Version 10</a></li>
+                                    </ul>
+                                </div>
+                                <div class="pl-4">
+                                    <ul class="elements-content">
+                                        <li><a href="#" class="font-weight-bold text-dark border-bottom transition">FOOTER</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Footer Version 1</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Footer Version 2</a></li>
+                                        <li><a href="#" class="text-secondary border-bottom transition">Footer Version 3</a></li>
+                                        <li><a href="#" class="text-secondary transition">Footer Version 4</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-menu position-relative cursor-pointer">
+                        <a href="#" class="has-badge hover text-white position-relative transition">
+                            Accessories
+                        </a>
+                        <div class="header-2-submenu submenu home-submenu position-absolute">
+                            <div class="bg-white">
+                                <ul class="one-col-content">
+                                    <li><a href="#" class="text-secondary border-bottom transition">Bags</a></li>
+                                    <li><a href="#" class="text-secondary border-bottom transition">Belts</a></li>
+                                    <li class="access-has-menu position-relative">
+                                        <a href="#" class="has-badge position-relative text-secondary border-bottom transition">
+                                            Pants & Denim
+                                            <span class="hd-item-badge one-col-badge badge badge-pill badge-info position-absolute">New</span>
+                                        </a>
+                                        <div class="access-submenu bg-white position-absolute">
+                                            <ul>
+                                                <li><a href="#" class="text-secondary border-right border-bottom transition">Scarves</a></li>
+                                                <li><a href="#" class="text-secondary border-right border-bottom transition">Special Occasion</a></li>
+                                                <li>
+                                                    <a href="#" class="text-secondary border-right has-badge position-relative transition">
+                                                        Sundresses
+                                                        <span class="hd-item-badge one-col-badge badge badge-pill badge-danger position-absolute">Hot</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="text-secondary border-bottom transition">Sharp Blazer</a></li>
+                                    <li><a href="#" class="text-secondary transition">Caps & Hats</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-menu position-relative cursor-pointer">
+                        <a href="#" class="hover text-white position-relative transition">
+                            Sale
+                            <span class="sale-badge hd-badge badge badge-pill badge-warning text-white position-absolute">Sale</span>
+                        </a>
+                    </li>*@
+                </ul>
+            </div>
+            <div class="header-2-icon d-flex col-lg-3 justify-content-end p-0 col-4">
+                <div class="search-icon h2-icon">
+                    <a href="#search" class="text-white hover-blue transition"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="has-menu h2-icon account-icon position-relative d-none d-xl-flex">
+                    <div class="text-white cursor-pointer hover transition"><i class="far fa-user-circle"></i></div>
+                    <div class="submenu account-submenu position-absolute">
+                        <div class="bg-white">
+                            <ul class="one-col-content">
+                                <li class="width-10"><a href="#" class="border-bottom hover-blue transition">My Account</a></li>
+                                <li class="width-10"><a href="#" class="border-bottom hover-blue transition">My Wish List</a></li>
+                                <li class="width-10"><a href="#" class="border-bottom hover-blue transition">Create an Account</a></li>
+                                <li class="width-10"><a href="#" class="hover-blue transition">Sign In</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="heart-icon h2-icon d-none d-xl-flex">
+                    <a href="#" class="text-white hover-blue transition"><i class="far fa-heart"></i></a>
+                </div>
+                <div class="cart-icon h2-icon">
+                    <a href="#" id="cart" class="text-white hover-blue transition position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="icon-item-badge badge badge-pill badge-light position-absolute">0</span>
+                    </a>
+                </div>
+            </div>
+            <div id="search" class="transition">
+                <form>
+                    <input type="search" value="" placeholder="Search for..." />
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="cart-menu" class="cart bg-white position-fixed d-none">
+        <div class="cart-header text-white py-2 d-flex align-items-center">
+            <div id="cart-close" class="cart-close-btn pl-3 cursor-pointer">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="cart-title text-center font-weight-bold">
+                MINI CART
+            </div>
+        </div>
+        <div class="cart-content text-center p-4">
+            You have no items in your shopping cart.
+        </div>
+    </div>
+
+    <div id="bar-menu" class="bar bg-white position-fixed d-none d-xl-none">
+        <div class="bar-header text-white d-flex">
+            <div id="bar-header-1" class="bar-header-tittle d-flex justify-content-center align-items-center font-weight-bold cursor-pointer transition">Menu</div>
+            <div id="bar-header-2" class="bar-header-tittle d-flex justify-content-center align-items-center font-weight-bold bar-header-border cursor-pointer transition">Account</div>
+            <div id="bar-header-3" class="bar-header-tittle d-flex justify-content-center align-items-center font-weight-bold cursor-pointer transition position-relative">
+                Setting
+            </div>
+        </div>
+        <div class="bar-content">
+            <ul id="menu" class="menu">
+                <li class="menu-item has-item border-bottom d-flex">
+                    <a href="#" class="text-dark cursor-pointer">Home</a>
+                    <div class="colbtn d-flex justify-content-center align-items-center">
+                        <a id="home-icon" href="#homeCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="homeCollapse" data-toggle="collapse">
+                            <i id="home-plus-icon" class="fas fa-plus text-dark"></i>
+                            <i id="home-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                        </a>
+                    </div>
+                </li>
+                <div class="collapse" id="homeCollapse">
+                    <ul class="pl-2">
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Dark Version</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Minmal</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Classic</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Video Banner</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Product Categories</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Lookbook</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Static Image</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Left Side</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Boxed</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Minmal RTL</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
+                            <a href="#" class="text-dark flex-grow-9">Home Instagram Shop</a>
+                            <span class="menu-item-badge badge badge-pill badge-danger position-absolute">Hot</span>
+                        </li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Minmal Disable Hover Effect</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Parallax</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Market</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Digital</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Shoes</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Watches</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Jewelry</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Cosmetics</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Glasses</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Furniture</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Handmade</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Home Decor</a></li>
+                    </ul>
+                </div>
+                <li class="menu-item has-item border-bottom cursor-pointer d-flex position-relative">
+                    <a href="#" class="text-dark">Shop</a>
+                    <span class="menu-item-badge badge badge-pill badge-info position-absolute">New</span>
+                    <div class="colbtn d-flex justify-content-center align-items-center">
+                        <a id="shop-icon" href="#shopCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="shopCollapse" data-toggle="collapse">
+                            <i id="shop-plus-icon" class="fas fa-plus text-dark"></i>
+                            <i id="shop-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                        </a>
+                    </div>
+                </li>
+                <div class="collapse" id="shopCollapse">
+                    <ul class="pl-2">
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Categories</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="cate-icon" href="#cateCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="cateCollapse" data-toggle="collapse">
+                                    <i id="cate-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="cate-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="cateCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">1 Column</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">2 Columns Left</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">2 Columns Right</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">3 Columns</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">2 Product Per Row</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">3 Product Per Row</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">4 Product Per Row</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">5 Product Per Row</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">6 Product Per Row</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">7 Product Per Row</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">8 Product Per Row</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Ajax Load More Product</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
+                                    <a href="#" class="text-dark flex-grow-9">Products Hover Effect 2</a>
+                                    <span class="menu-item-badge badge badge-pill badge-info position-absolute">New</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Collection</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="coll-icon" href="#collCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="collCollapse" data-toggle="collapse">
+                                    <i id="coll-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="coll-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="collCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Collection Grid Layout</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Collection Masonry Layout</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Collection Lookbook Layout</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+                <li class="menu-item has-item border-bottom cursor-pointer d-flex">
+                    <a href="#" class="text-dark">Product</a>
+                    <div class="colbtn d-flex justify-content-center align-items-center">
+                        <a id="prod-icon" href="#productCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="productCollapse" data-toggle="collapse">
+                            <i id="prod-plus-icon" class="fas fa-plus text-dark"></i>
+                            <i id="prod-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                        </a>
+                    </div>
+                </li>
+                <div class="collapse" id="productCollapse">
+                    <ul class="pl-2">
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Product Detail Features</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="prodf-icon" href="#productFeatureCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="productFeatureCollapse" data-toggle="collapse">
+                                    <i id="prodf-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="prodf-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="productFeatureCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
+                                    <a href="#" class="text-dark flex-grow-9">Product With Slide Gallery</a>
+                                    <span class="menu-item-badge badge badge-pill badge-info position-absolute">New</span>
+                                </li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
+                                    <a href="#" class="text-dark flex-grow-9">Products With Image 360 Deg</a>
+                                    <span class="menu-item-badge badge badge-pill badge-danger position-absolute">Hot</span>
+                                </li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Simple Product</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Deal Product</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Custom Options Product</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Group Product</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Bundle Product</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Configuable Product</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Video</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Lookbook In Product</a></li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Product Detail Layout</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="prodl-icon" href="#productLayoutCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="productLayoutCollapse" data-toggle="collapse">
+                                    <i id="prodl-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="prodl-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="productLayoutCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Tab</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Accordion</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Accordion 2</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Thumb At Bottom</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Vertical Thumb</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product Gallery Grid</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Sticky Info</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Sticky Info 2</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Sidebar</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Product With Gallery Lightbox</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+                <li class="menu-item has-item border-bottom cursor-pointer d-flex">
+                    <a href="#" class="text-dark">Pages</a>
+                    <div class="colbtn d-flex justify-content-center align-items-center">
+                        <a id="page-icon" href="#pageCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="pageCollapse" data-toggle="collapse">
+                            <i id="page-plus-icon" class="fas fa-plus text-dark"></i>
+                            <i id="page-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                        </a>
+                    </div>
+                </li>
+                <div class="collapse" id="pageCollapse">
+                    <ul class="pl-2">
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Blog</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="blog-icon" href="#blogCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="blogCollapse" data-toggle="collapse">
+                                    <i id="blog-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="blog-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="blogCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Blog List</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Blog Category</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Blog With Tag</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Blog Detail</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Lookbook In Single Blog Post</a></li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark collapse-child">Portfolio</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="port-icon" href="#portCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="portCollapse" data-toggle="collapse">
+                                    <i id="port-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="port-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="portCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Portfolio</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Portfolio Detail</a></li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Store Locator</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="store-icon" href="#storeCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="storeCollapse" data-toggle="collapse">
+                                    <i id="store-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="store-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="storeCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Store Locator</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Store Locator Detail</a></li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Shop By Brand</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="brand-icon" href="#brandCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="brandCollapse" data-toggle="collapse">
+                                    <i id="brand-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="brand-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="brandCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Brands List</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Brand Detail</a></li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">About Us</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Contact Us</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">404 Page</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Size Guide</a></li>
+                    </ul>
+                </div>
+                <li class="menu-item has-item border-bottom cursor-pointer d-flex">
+                    <a href="#" class="text-dark">Elements</a>
+                    <div class="colbtn d-flex justify-content-center align-items-center">
+                        <a id="elem-icon" href="#elemCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="elemCollapse" data-toggle="collapse">
+                            <i id="elem-plus-icon" class="fas fa-plus text-dark"></i>
+                            <i id="elem-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                        </a>
+                    </div>
+                </li>
+                <div class="collapse" id="elemCollapse">
+                    <ul class="pl-2">
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Header</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="elemh-icon" href="#headerCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="headerCollapse" data-toggle="collapse">
+                                    <i id="elemh-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="elemh-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="headerCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 1</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 2</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 3</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 4</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 5</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 6</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 7</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 8</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 9</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Header Version 10</a></li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Footer</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="elemf-icon" href="#footerCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="footerCollapse" data-toggle="collapse">
+                                    <i id="elemf-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="elemf-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="footerCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Footer Version 1</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Footer Version 2</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Footer Version 3</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Footer Version 4</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+                <li class="menu-item has-item border-bottom cursor-pointer d-flex">
+                    <a href="#" class="text-dark">Accessories</a>
+                    <div class="colbtn d-flex justify-content-center align-items-center">
+                        <a id="acce-icon" href="#acceCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="acceCollapse" data-toggle="collapse">
+                            <i id="acce-plus-icon" class="fas fa-plus text-dark"></i>
+                            <i id="acce-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                        </a>
+                    </div>
+                </li>
+                <div class="collapse" id="acceCollapse">
+                    <ul class="pl-2">
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Bag</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Belts</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex">
+                            <a href="#" class="text-dark flex-grow-9">Pants & Denim</a>
+                            <div class="colbtn d-flex justify-content-center align-items-center">
+                                <a id="pant-icon" href="#pantCollapse" class="d-block cursor-pointer" role="button" aria-expanded="false" aria-controls="pantCollapse" data-toggle="collapse">
+                                    <i id="pant-plus-icon" class="fas fa-plus text-dark"></i>
+                                    <i id="pant-minus-icon" class="fas fa-minus text-dark d-none"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse" id="pantCollapse">
+                            <ul class="pl-2">
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Scarves</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Special Occasion</a></li>
+                                <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
+                                    <a href="#" class="text-dark flex-grow-9">Sundresses</a>
+                                    <span class="menu-item-badge badge badge-pill badge-danger position-absolute">Hot</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Sharp Blazer</a></li>
+                        <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark flex-grow-9">Caps & Hats</a></li>
+                    </ul>
+                </div>
+                <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
+                    <a href="#" class="text-dark">Sale</a>
+                    <span class="menu-item-badge badge badge-pill badge-warning text-white position-absolute">Sale</span>
+                </li>
+            </ul>
+            <ul id="account-menu" class="account-menu d-none">
+                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">My Account</a></li>
+                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">My Wish List</a></li>
+                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">Create an Account</a></li>
+                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">Sign In</a></li>
+            </ul>
+            <ul id="setting-menu" class="setting-menu d-none">
+                <li id="lang-btn" class="menu-item border-bottom cursor-pointer position-relative d-flex">
+                    <div>
+                        Austria
+                        <i class="fas fa-caret-down pl-3"></i>
+                    </div>
+                    <ul id="lang-menu" class="setting-item position-absolute d-none">
+                        <li class="d-flex align-items-center hover-blue">
+                            <a href="#" class="text-secondary h1-submenu-link transition">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg" class="submenu-img pr-2">English
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="#" class="text-secondary h1-submenu-link transition">
+                                <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" class="submenu-img pr-2">French
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="#" class="text-secondary h1-submenu-link transition">
+                                <img src="https://cdn.countryflags.com/thumbs/germany/flag-400.png" class="submenu-img pr-2">German
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="#" class="text-secondary h1-submenu-link transition">
+                                <img src="https://cdn.countryflags.com/thumbs/italy/flag-400.png" class="submenu-img pr-2">Italy
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="#" class="text-secondary h1-submenu-link transition">
+                                <img src="https://cdn.countryflags.com/thumbs/spain/flag-400.png" class="submenu-img pr-2">Spain
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="currency-btn" class="menu-item border-bottom cursor-pointer position-relative d-flex">
+                    <div>
+                        USD
+                        <i class="fas fa-caret-down pl-3"></i>
+                    </div>
+                    <ul id="currency-menu" class="setting-item setting-item-curr position-absolute d-none">
+                        <li><a href="#" class="text-secondary h1-submenu-link transition">EUR - Euro</a></li>
+                        <li><a href="#" class="text-secondary h1-submenu-link transition">SAR - Saudi Riyal</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
-    <div class="container-fluid" style="padding:0 !important; margin:0 !important;">
+    <div id="bar-close" class="text-white cursor-pointer bar-close-btn position-fixed d-none d-xl-none">
+        <i class="fas fa-times"></i>
+    </div>
+
+    <div id="bar-body-gray" class="body-gray d-none transition d-xl-none"></div>
+    <div id="cart-body-gray" class="body-gray d-none transition"></div>
+
+    @*<div class="navbar-fixed-top">
+            <div class="container-fluid item mb-0 br-0">
+                <div class="row w-100 d-flex align-items-center" style="margin-left: 0; margin-right: 0">
+                    <div class="contact col-lg-4">
+                        <div class="icon-ctn ">
+                            <img src="~/Images/mail.png" class="top-icon" />
+                            <p class="contact-text">contact@tnc.com</p>
+                        </div>
+                        <div class="icon-ctn">
+                            <img src="~/Images/phone.png" class="top-icon" />
+                            <p class="contact-text">+001 2233 456</p>
+                        </div>
+                    </div>
+                    <div class="logo-ctn col-lg-4">
+                        <img src="~/Images/new-logo.png" class="logo" />
+                    </div>
+                    <div class="options col-lg-4">
+                        <a href='@Url.Action("Index", "Home")'>
+                            <img src="~/Images/account.png" class="top-icon top-right-icon" />
+                        </a>
+                        <a href='@Url.Action("Index", "Home")'>
+                            <img src="~/Images/cart.png" class="top-icon top-right-icon" />
+                        </a>
+                        <a href='@Url.Action("Index", "Home")'>
+                            <img src="~/Images/order.png" class="top-icon top-right-icon" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid item br-0 below-block">
+                <ul class="nav navbar-nav">
+                    <li class="item-nav">@Html.ActionLink("Bed", "Index", "Home")</li>
+                    <li class="item-nav">@Html.ActionLink("Desk", "Index", "Home")</li>
+                    <li class="item-nav">@Html.ActionLink("Chair", "Index", "Home")</li>
+                    <li class="item-nav">@Html.ActionLink("Sofa", "About", "Home")</li>
+                    <li class="item-nav">@Html.ActionLink("Wardrobe", "Contact", "Home")</li>
+                    <li class="item-nav">@Html.ActionLink("Lamp", "Contact", "Home")</li>
+                    <li class="item-nav">@Html.ActionLink("Carpet", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>*@
+
+    <div class="container-fluid" style="padding:0 !important; margin:0 !important; background-color: pink">
         @RenderBody()
     </div>
-    <div class="footer">
 
+    <div class="footer">
+        <div class="container footer-link">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3 text-gray pt-6">
+                    <div class="pb-6">
+                        <a href="#">
+                            <img src="~/Images/new-logo-2.jpg" style="width:18rem; height:5rem" />
+                        </a>
+                    </div>
+                    <div class="d-flex pb-3">
+                        <i class="fas fa-map-marker-alt pt-1"></i>
+                        <span class="pl-175">
+                            184 Main Rd E, St Albans
+                            <br />
+                            VIC 3021, Australia
+                        </span>
+                    </div>
+                    <div class="pb-175">
+                        <i class="far fa-envelope"></i>
+                        <a class="text-gray hover-blue transition pl-3" href="#">contact@tnc.com</a>
+                    </div>
+                    <div class="pb-175">
+                        <i class="fas fa-phone-alt"></i>
+                        <a class="text-gray hover-blue transition pl-3" href="#">+001 2233 456</a>
+                    </div>
+                    <div>
+                        <a class="text-gray hover-blue transition pr-4" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="text-gray hover-blue transition pr-4" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="text-gray hover-blue transition pr-4" href="#"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="text-gray hover-blue transition pr-4" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="text-gray hover-blue transition" href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2 pt-6">
+                    <ul>
+                        <li class="font-weight-bold pb-6 footer-list-title">Categories</li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Men</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Women</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Accessories</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Shoes</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Denim</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Dress</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2 pt-6">
+                    <ul>
+                        <li class="font-weight-bold pb-6 footer-list-title">Information</li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">About Us</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Contact Us</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Terms & Conditions</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Returns & Exchanges</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Shipping & Delivery</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2 pt-6">
+                    <ul>
+                        <li class="font-weight-bold pb-6 footer-list-title">Quick Links</li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Store Location</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">My Account</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Accessories</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Orders Tracking</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">Size Guide</a>
+                        </li>
+                        <li class="pb-175">
+                            <a class="text-gray hover-blue transition" href="#">FAQs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 pt-6 pb-175">
+                    <div class="text-gray pb-175">Subscribe to our newsletter and get 10% off your first purchase</div>
+
+                    <div class="footer-input position-relative">
+                        <input class="footer-input-mail" type="email" name="email" placeholder="Your email address">
+                        <button type="button" class="f-btn btn btn-dark position-absolute transition">Subcribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-8 d-flex justify-content-center justify-content-lg-start text-center text-gray p-3">
+                        Copyright © 2017 Claue. All rights reserved. Powered by Magesolution
+                    </div>
+                    <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end p-3 pb-lg-0">
+                        <ul class="d-flex align-items-center m-0">
+                            <li>
+                                <a class="text-gray hover-blue transition" href="#">Blog</a>
+                            </li>
+                            <li class="pl-175">
+                                <a class="text-gray hover-blue transition" href="#">Contact</a>
+                            </li>
+                            <li class="pl-175">
+                                <a class="text-gray hover-blue transition" href="#">About Us</a>
+                            </li>
+                            <li class="pl-175">
+                                <a class="text-gray hover-blue transition" href="#">Shop</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
