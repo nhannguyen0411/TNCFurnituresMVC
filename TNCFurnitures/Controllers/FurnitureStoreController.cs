@@ -24,10 +24,18 @@ namespace TNCFurnitures.Controllers
             return View(chude);
         }
 
-        public ActionResult Desk(int id)
+        public ActionResult Products(int id, bool isRoom)
         {
-            var desk = from d in db.NOITHATs where d.MaLoaiNT == id select d;
-            return View(desk);
+            if(isRoom)
+            {
+                var room = from r in db.NOITHATs where r.MaLoaiPhong == id select r;
+                return View(room);
+            }
+            else
+            {
+                var funi = from d in db.NOITHATs where d.MaLoaiNT == id select d;
+                return View(funi);
+            }
         }
     }
 }

@@ -20,9 +20,9 @@ namespace TNCFurnitures.Models
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLFurnitures")]
+    using System.ComponentModel.DataAnnotations;
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLFurnitures")]
 	public partial class dbQLFurnituresDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -1369,6 +1369,7 @@ namespace TNCFurnitures.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenND", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[Required]
 		public string TenND
 		{
 			get
@@ -1409,6 +1410,7 @@ namespace TNCFurnitures.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[Required]
 		public string MatKhau
 		{
 			get
@@ -1429,6 +1431,7 @@ namespace TNCFurnitures.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		[Required]
 		public string Email
 		{
 			get
@@ -1449,6 +1452,7 @@ namespace TNCFurnitures.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(200)")]
+		[Required]
 		public string DiaChi
 		{
 			get
@@ -1469,6 +1473,7 @@ namespace TNCFurnitures.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="VarChar(50)")]
+		[Required]
 		public string DienThoai
 		{
 			get

@@ -1,6 +1,12 @@
 ﻿@model IEnumerable<TNCFurnitures.Models.NOITHAT>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+<h2>Products</h2>
 @foreach(var item in Model)
 {
     <p>@item.TenNT</p>
 }
+

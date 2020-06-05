@@ -1,0 +1,79 @@
+﻿<link href="~/Styles/register.css" rel="stylesheet" />
+<link href="~/Styles/default.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            @using (Html.BeginForm())
+            {
+            <form class="login100-form validate-form">
+                <span class="login100-form-title">
+                    <img src="~/Images/new-logo-2.jpg" style="width: 70%; height: 8rem; margin: 3rem 0;" />
+                </span>
+                <span class="login100-form-title">
+                    <i class="zmdi zmdi-font"></i>
+                </span>
+
+                <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                    <input class="input100" type="text" name="email">
+                    <span class="focus-input100" data-placeholder="Email"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Name">
+                    <input class="input100" type="text" name="name">
+                    <span class="focus-input100" data-placeholder="Name"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Phone">
+                    <input class="input100" type="text" name="phone">
+                    <span class="focus-input100" data-placeholder="Phone"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Address">
+                    <input class="input100" type="text" name="address">
+                    <span class="focus-input100" data-placeholder="Address"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input class="input100" type="password" name="pass">
+                    <span class="focus-input100" data-placeholder="Password"></span>
+                </div>
+                <div style="color: red; text-align: center">@ViewData["Error"]</div>
+                @*<div style="color: red; text-align: center">@ViewBag.ErrorMessage</div>*@
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button type="submit" class="login100-form-btn font-weight-bold">
+                            Register
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center pt-3">
+                    <span class="txt1">
+                        Already has an account?
+                    </span>
+
+                    <a class="txt2" href="#">
+                        Sign in
+                    </a>
+                </div>
+            </form>
+            }
+        </div>
+    </div>
+</div>
+
+
+<div id="dropDownSelect1"></div>
+<script>
+
+</script>

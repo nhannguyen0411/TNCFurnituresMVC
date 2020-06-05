@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TNCFurnitures.Models;
-
 namespace TNCFurnitures.Controllers
 {
     public class HomeController : Controller
@@ -12,8 +11,7 @@ namespace TNCFurnitures.Controllers
         dbQLFurnituresDataContext db = new dbQLFurnituresDataContext();
         public ActionResult Index()
         {
-            var chude = from cd in db.LOAINOITHATs select cd;
-            return View(chude);
+            return View();
         }
 
         public ActionResult About()

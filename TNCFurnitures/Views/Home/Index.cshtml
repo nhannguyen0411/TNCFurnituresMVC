@@ -1,7 +1,7 @@
-﻿@model IEnumerable<TNCFurnitures.Models.LOAINOITHAT>
+﻿@model IEnumerable<TNCFurnitures.Models.LOAIPHONG>
 <link href="~/Styles/home.css" rel="stylesheet" />
 <link href="~/Styles/default.css" rel="stylesheet" />
-
+<link href="~/Styles/not-rooms.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Home Page";
 }
@@ -35,55 +35,53 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <a href="@Url.Action("Index", "FurnitureStore")">Index</a>WW
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<div class="rooms">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="room bedroom col-12 col-md-6 bedroom-sm">
+                <div class="overflow-hidden position-relative">
+                    <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//o/f/office_banner.jpg">
+                    <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
+                        <div class="room-btn">
+                            <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Bedroom</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 overflow-hidden not-bedroom">
+                <div class="row">
+                    <div class="room livingroom col-12 position-relative">
+                        <div class="overflow-hidden position-relative">
+                            <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//l/i/living_banner.jpg">
+                            <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
+                                <div class="room-btn">
+                                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Living Room</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room bathroom col-12 col-md-6 position-relative bathroom-sm">
+                        <div class="overflow-hidden position-relative">
+                            <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//b/e/bedroom_banner.jpg" style="height:40.4rem;">
+                            <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
+                                <div class="room-btn">
+                                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Bathroom</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room diningroom col-12 col-md-6 position-relative diningroom-sm">
+                        <div class="overflow-hidden position-relative">
+                            <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//d/i/dining_banner.jpg" style="height:40.4rem;">
+                            <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
+                                <div class="room-btn">
+                                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Dining Room</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

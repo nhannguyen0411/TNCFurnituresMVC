@@ -1,0 +1,146 @@
+﻿a:link {
+    text-decoration: none;
+}
+
+.transition {
+    transition: all .3s;
+}
+
+.rooms {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.rooms img {
+    width: 100%;
+}
+
+.livingroom {
+    margin-bottom: 15px;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.room:hover img {
+    transform: scale(1.1);
+}
+
+.room-btn {
+    bottom: 4.5rem;
+    left: 39%;
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.room-btn a {
+    padding: 1.5rem 7rem;
+    font-size: 1.6rem;
+}
+
+.room-btn:hover a {
+    background-color: #56cfe1;
+    color: #fff !important;
+}
+
+.bottom-center {
+    bottom: 0;
+    padding-bottom: 4rem;
+}
+
+/*@media only screen and (max-width: 768px) {
+    .room {
+        margin-bottom: 1.8rem;
+    }
+}*/
+
+.bedroom {
+    padding-right: 7.5px;
+}
+
+.not-bedroom {
+    padding-left: 7.5px
+}
+
+.bathroom {
+    padding: 0;
+    padding-right: 7.5px;
+}
+
+.diningroom {
+    padding: 0;
+    padding-left: 7.5px;
+}
+
+/*S*/
+/*@media (max-width: 768px) {
+    .bedroom-sm {
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+
+    .not-bedroom {
+        padding-left: 15px;
+    }
+
+    .bathroom-sm {
+        padding-right: 0;
+        padding-bottom: 15px;
+    }
+
+    .diningroom-sm {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .bedroom-sm {
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+
+    .not-bedroom {
+        padding-left: 15px;
+    }
+
+    .bathroom-sm {
+        padding-right: 0;
+        padding-bottom: 15px;
+    }
+
+    .diningroom-sm {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .bedroom-sm {
+        padding-right: 7.5px;
+    }
+
+    .not-bedroom {
+        padding-left: 7.5px;
+    }
+
+    .bathroom {
+        padding-right: 7.5px;
+    }
+
+    .bathroom-sm img {
+        height: 25.5rem !important;
+    }
+
+    .diningroom {
+        padding-left: 7.5px;
+    }
+
+    .diningroom-sm img {
+        height: 25.5rem !important;
+    }
+
+    .room-btn a {
+        padding: 1.2rem 4rem;
+        font-size: 1.4rem;
+    }
+}*/
