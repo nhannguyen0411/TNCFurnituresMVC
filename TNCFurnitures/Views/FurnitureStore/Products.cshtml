@@ -1,12 +1,27 @@
-﻿@model IEnumerable<TNCFurnitures.Models.NOITHAT>
+﻿<link 
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+      crossorigin="anonymous"
+>
+@model IEnumerable<TNCFurnitures.Models.NOITHAT>
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Products</h2>
-@foreach(var item in Model)
-{
-    <p>@item.TenNT</p>
-}
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 text-center mt-4">
+                <img src="~/Images/@item.AnhBia" style="height: 18rem; width: 18rem;" />
+                <div>@item.TenNT</div>
+                <a href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })">Details</a>
+            </div>
+        }
+    </div>
+</div>
+
 

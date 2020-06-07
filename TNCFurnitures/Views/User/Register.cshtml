@@ -18,31 +18,31 @@
                     <i class="zmdi zmdi-font"></i>
                 </span>
 
-                <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                    <input class="input100" type="text" name="email">
+                <div id="valid-email" class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                    <input id="email" class="input100" type="text" name="email">
                     <span class="focus-input100" data-placeholder="Email"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Name">
-                    <input class="input100" type="text" name="name">
+                <div id="valid-name" class="wrap-input100 validate-input" data-validate="Name">
+                    <input id="name" class="input100" type="text" name="name">
                     <span class="focus-input100" data-placeholder="Name"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Phone">
-                    <input class="input100" type="text" name="phone">
+                <div id="valid-phone" class="wrap-input100 validate-input" data-validate="Phone">
+                    <input id="phone" class="input100" type="text" name="phone">
                     <span class="focus-input100" data-placeholder="Phone"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Address">
-                    <input class="input100" type="text" name="address">
+                <div id="valid-address" class="wrap-input100 validate-input" data-validate="Address">
+                    <input id="address" class="input100" type="text" name="address">
                     <span class="focus-input100" data-placeholder="Address"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                <div  id="valid-password" class="wrap-input100 validate-input" data-validate="Enter password">
                     <span class="btn-show-pass">
                         <i class="zmdi zmdi-eye"></i>
                     </span>
-                    <input class="input100" type="password" name="pass">
+                    <input id="password" class="input100" type="password" name="pass">
                     <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
                 <div style="color: red; text-align: center">@ViewData["Error"]</div>
@@ -51,7 +51,7 @@
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button type="submit" class="login100-form-btn font-weight-bold">
+                        <button id="btn" type="submit" class="login100-form-btn font-weight-bold">
                             Register
                         </button>
                     </div>
@@ -75,5 +75,75 @@
 
 <div id="dropDownSelect1"></div>
 <script>
-
+    const inputEmail = document.getElementById("valid-email");
+    const inputPassword = document.getElementById("valid-password");
+    const inputName = document.getElementById("valid-name");
+    const inputAddress = document.getElementById("valid-address");
+    const inputPhone = document.getElementById("valid-phone");
+    document.getElementById("btn").addEventListener("click", function (e) {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const name = document.getElementById("name").value;
+        const address = document.getElementById("address").value;
+        const phone = document.getElementById("phone").value;
+        
+        if (!email && !password && !name && !phone && !address) {
+            inputEmail.classList.add("focus-err");
+            inputPassword.classList.add("focus-err");
+            inputName.classList.add("focus-err");
+            inputAddress.classList.add("focus-err");
+            inputPhone.classList.add("focus-err");
+            alert("These fields are required");
+            e.preventDefault();
+        }
+        else if (!email) {
+            inputEmail.classList.add("focus-err");
+            inputPassword.classList.remove("focus-err");
+            inputName.classList.remove("focus-err");
+            inputAddress.classList.remove("focus-err");
+            inputPhone.classList.remove("focus-err");
+            alert("Email is required");
+            e.preventDefault();
+        }
+        else if (!name) {
+            inputName.classList.add("focus-err");
+            inputEmail.classList.remove("focus-err");
+            inputPassword.classList.remove("focus-err");
+            inputAddress.classList.remove("focus-err");
+            inputPhone.classList.remove("focus-err");
+            alert("Name is required");
+            e.preventDefault();
+        }
+        else if (!phone) {
+            inputPhone.classList.add("focus-err");
+            inputEmail.classList.remove("focus-err");
+            inputPassword.classList.remove("focus-err");
+            inputName.classList.remove("focus-err");
+            inputAddress.classList.remove("focus-err");
+            alert("Phone is required");
+            e.preventDefault();
+        }
+        else if (!address) {
+            inputAddress.classList.add("focus-err");
+            inputEmail.classList.remove("focus-err");
+            inputPassword.classList.remove("focus-err");
+            inputName.classList.remove("focus-err");
+            inputPhone.classList.remove("focus-err");
+            alert("Address is required");
+            e.preventDefault();
+        }
+        else if (!password) {
+            inputPassword.classList.add("focus-err");
+            inputEmail.classList.remove("focus-err");
+            inputName.classList.remove("focus-err");
+            inputAddress.classList.remove("focus-err");
+            inputPhone.classList.remove("focus-err");
+            alert("Password is required");
+            e.preventDefault();
+        }
+        else {
+            alert("Wait a minute");
+            e.preventDefault();
+        }
+    })
 </script>

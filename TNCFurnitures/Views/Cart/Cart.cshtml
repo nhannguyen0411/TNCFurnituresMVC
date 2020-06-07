@@ -1,0 +1,52 @@
+﻿@using TNCFurnitures.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">THÔNG TIN GIỎ HÀNg</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td>Mã noi that</td>
+        <td>Tên noi that</td>
+        <td>Ảnh bìa</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+        <td width:"50px"></td>
+        <td width:"50px"></td>
+        <td width:"50px"></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@item.iMaNT</td>
+            <td>@item.sTenNT</td>
+            <td><img src="~/Images/@item.sAnhBia" style="height: 18rem; width: 18rem" /></td>
+            <td>@item.iSoLuong</td>
+            <td>@String.Format("{0:0,0}", item.dDonGia)</td>
+            <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+            <td><a href="@Url.Action("Details", "FurnitureStore", new { id = item.iMaNT })">Chi tiết</a></td>
+            <td>@Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSp = item.iMaNT })</td>
+            @*@using (Html.BeginForm("CapnhapGiohang", "Giohang", new { @iMaSP = item.iMaNT }))
+                {
+                    <td>
+                        <input type="number" min="1" name="txtSoluong" value="@item.iSoLuong" style="background-color:yellow" />
+                    </td>
+                    <td>@String.Format("{0:0,0}", item.dDonGia)</td>
+                    <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+                    <td><a href="@Url.Action("Details", "FurnitureStore", new { id = item.iMaNT })">Chi tiết</a></td>
+                    <td>@Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSp = item.iMaNT })</td>
+                    <td>
+                        <input type="submit" value="Cập nhật" />
+                    </td>
+                }*@
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:right; color:red">
+        <td colspan="4">Số lượng sách: @ViewBag.Tongsoluong</td>
+        <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
+    </tr>
+</table>
+

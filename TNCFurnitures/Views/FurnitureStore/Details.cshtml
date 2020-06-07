@@ -1,0 +1,16 @@
+﻿<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div class="container">
+    <img src="~/Images/@Model.AnhBia" style="height: 18rem; width: 18rem" />
+    <div style="font-size: 26px">@Model.TenNT</div>
+    <a href="@Url.Action("AddToCart", "Cart", new { @iMaNT = @Model.MaNT, @strURL = Request.Url.ToString() })" >Add To Cart</a>
+</div>
+

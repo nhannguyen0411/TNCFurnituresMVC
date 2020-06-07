@@ -23,18 +23,18 @@ a {
     -moz-transition: all 0.4s;
 }
 
-    a:focus {
-        outline: none !important;
-    }
+a:focus {
+    outline: none !important;
+}
 
-    a:hover {
-        text-decoration: none;
-        color: #6a7dfe;
-        color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-        color: -o-linear-gradient(left, #21d4fd, #b721ff);
-        color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-        color: linear-gradient(left, #21d4fd, #b721ff);
-    }
+a:hover {
+    text-decoration: none;
+    color: #6a7dfe;
+    color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+    color: -o-linear-gradient(left, #21d4fd, #b721ff);
+    color: -moz-linear-gradient(left, #21d4fd, #b721ff);
+    color: linear-gradient(left, #21d4fd, #b721ff);
+}
 
 /*---------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
@@ -65,41 +65,41 @@ textarea {
     border: none;
 }
 
-    textarea:focus, input:focus {
-        border-color: transparent !important;
-    }
+textarea:focus, input:focus {
+    border-color: transparent !important;
+}
 
-        input:focus::-webkit-input-placeholder {
-            color: transparent;
-        }
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
 
-        input:focus:-moz-placeholder {
-            color: transparent;
-        }
+input:focus:-moz-placeholder {
+    color: transparent;
+}
 
-        input:focus::-moz-placeholder {
-            color: transparent;
-        }
+input:focus::-moz-placeholder {
+    color: transparent;
+}
 
-        input:focus:-ms-input-placeholder {
-            color: transparent;
-        }
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
 
-        textarea:focus::-webkit-input-placeholder {
-            color: transparent;
-        }
+textarea:focus::-webkit-input-placeholder {
+    color: transparent;
+}
 
-        textarea:focus:-moz-placeholder {
-            color: transparent;
-        }
+textarea:focus:-moz-placeholder {
+    color: transparent;
+}
 
-        textarea:focus::-moz-placeholder {
-            color: transparent;
-        }
+textarea:focus::-moz-placeholder {
+    color: transparent;
+}
 
-        textarea:focus:-ms-input-placeholder {
-            color: transparent;
-        }
+textarea:focus:-ms-input-placeholder {
+    color: transparent;
+}
 
 input::-webkit-input-placeholder {
     color: #adadad;
@@ -191,7 +191,8 @@ iframe {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    padding: 77px 55px 33px 55px;
+    padding: 66px 55px 44px 55px;
+    margin: 8rem 0 3rem 0;
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -215,9 +216,9 @@ iframe {
     text-align: center;
 }
 
-    .login100-form-title i {
-        font-size: 60px;
-    }
+.login100-form-title i {
+    font-size: 60px;
+}
 
 /*------------------------------------------------------------------
 [ Input ]*/
@@ -251,41 +252,45 @@ iframe {
     pointer-events: none;
 }
 
-    .focus-input100::before {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        -webkit-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        transition: all 0.4s;
-        background: #6a7dfe;
-        background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-        background: -o-linear-gradient(left, #21d4fd, #b721ff);
-        background: -moz-linear-gradient(left, #21d4fd, #b721ff);
-        background: linear-gradient(left, #21d4fd, #b721ff);
-    }
+.focus-input100::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    background: #6a7dfe;
+    background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+    background: -o-linear-gradient(left, #21d4fd, #b721ff);
+    background: -moz-linear-gradient(left, #21d4fd, #b721ff);
+    background: linear-gradient(left, #21d4fd, #b721ff);
+}
 
-    .focus-input100::after {
-        font-size: 15px;
-        color: #999999;
-        line-height: 1.2;
-        content: attr(data-placeholder);
-        display: block;
-        width: 100%;
-        position: absolute;
-        top: 16px;
-        left: 0px;
-        padding-left: 5px;
-        -webkit-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        transition: all 0.4s;
-    }
+.focus-err {
+    border-bottom: 2px solid red;
+}
+
+.focus-input100::after {
+    font-size: 15px;
+    color: #999999;
+    line-height: 1.2;
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    padding-left: 5px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
 
 .input100:focus + .focus-input100::after {
     top: -15px;
@@ -325,21 +330,21 @@ iframe {
     transition: all 0.4s;
 }
 
-    .btn-show-pass:hover {
-        color: #6a7dfe;
-        color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-        color: -o-linear-gradient(left, #21d4fd, #b721ff);
-        color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-        color: linear-gradient(left, #21d4fd, #b721ff);
-    }
+.btn-show-pass:hover {
+    color: #6a7dfe;
+    color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+    color: -o-linear-gradient(left, #21d4fd, #b721ff);
+    color: -moz-linear-gradient(left, #21d4fd, #b721ff);
+    color: linear-gradient(left, #21d4fd, #b721ff);
+}
 
-    .btn-show-pass.active {
-        color: #6a7dfe;
-        color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-        color: -o-linear-gradient(left, #21d4fd, #b721ff);
-        color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-        color: linear-gradient(left, #21d4fd, #b721ff);
-    }
+.btn-show-pass.active {
+    color: #6a7dfe;
+    color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+    color: -o-linear-gradient(left, #21d4fd, #b721ff);
+    color: -moz-linear-gradient(left, #21d4fd, #b721ff);
+    color: linear-gradient(left, #21d4fd, #b721ff);
+}
 
 
 

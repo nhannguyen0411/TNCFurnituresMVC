@@ -28,7 +28,7 @@
             <div class="header-2-navigation d-none d-lg-flex col-lg-6 justify-content-lg-center">
                 <ul class="dropdown d-flex">
                     <li id="home" class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Funi", "FurnitureStore", new { id = 2 })" class="hover text-white transition">
+                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = false })" class="hover text-white transition">
                             Bed
                         </a>
                     </li>
@@ -72,18 +72,16 @@
                     <div class="submenu account-submenu position-absolute">
                         <div class="bg-white">
                             <ul class="one-col-content">
-                                <li class="width-12"><a href="#" class="border-bottom hover-blue transition">My Account</a></li>
-                                <li class="width-12"><a href="#" class="border-bottom hover-blue transition">My Wish List</a></li>
-                                <li class="width-12"><a href="#" class="border-bottom hover-blue transition">Create an Account</a></li>
-                                <li class="width-12"><a href="#" class="hover-blue transition">Sign In</a></li>
+                                <li class="width-12"><a href="@Url.Action("Register", "User")" class="border-bottom hover-blue transition">Create an Account</a></li>
+                                <li class="width-12"><a href="@Url.Action("Login", "User")" class="hover-blue transition">Sign In</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="cart-icon h2-icon">
-                    <a href="#" id="cart" class="text-white hover-blue transition position-relative">
+                    <a href="@Url.Action("Cart", "Cart")" id="cart" class="text-white hover-blue transition position-relative">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="icon-item-badge badge badge-pill badge-light position-absolute">0</span>
+                        <span class="icon-item-badge badge badge-pill badge-light position-absolute">@Html.Action("CartPartial", "Cart")</span>
                     </a>
                 </div>
             </div>
@@ -123,31 +121,29 @@
                     <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, type = "kind" })" class="text-dark cursor-pointer">Bed</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex position-relative">
-                    <a href="@Url.Action("Funi", "FurnitureStore", new { id = 1 })" class="text-dark">Desk</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, type = "kind" })" class="text-dark">Desk</a>
                     <span class="menu-item-badge badge badge-pill badge-info position-absolute">New</span>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Funi", "FurnitureStore", new { id = 3 })" class="text-dark">Chair</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, type = "kind" })" class="text-dark">Chair</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Funi", "FurnitureStore", new { id = 4 })" class="text-dark">Sofa</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, type = "kind" })" class="text-dark">Sofa</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Funi", "FurnitureStore", new { id = 5 })" class="text-dark">Wardrobe</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 5, type = "kind" })" class="text-dark">Wardrobe</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Funi", "FurnitureStore", new { id = 6 })" class="text-dark">Lamp</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 6, type = "kind" })" class="text-dark">Lamp</a>
                 </li>
                 <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
-                    <a href="@Url.Action("Funi", "FurnitureStore", new { id = 7 })" class="text-dark">Carpet</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 7, type = "kind" })" class="text-dark">Carpet</a>
                     <span class="menu-item-badge badge badge-pill badge-warning text-white position-absolute">Sale</span>
                 </li>
             </ul>
             <ul id="account-menu" class="account-menu d-none">
-                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">My Account</a></li>
-                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">My Wish List</a></li>
-                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">Create an Account</a></li>
-                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="#" class="text-dark">Sign In</a></li>
+                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="@Url.Action("Register", "User")" class="text-dark">Create an Account</a></li>
+                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="@Url.Action("Login", "User")" class="text-dark">Sign In</a></li>
             </ul>
             <ul id="setting-menu" class="setting-menu d-none">
                 <li id="lang-btn" class="menu-item border-bottom cursor-pointer position-relative d-flex">

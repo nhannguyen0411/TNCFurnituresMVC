@@ -16,8 +16,6 @@ namespace TNCFurnitures.Controllers
             return db.NOITHATs.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
         }
 
-
-
         public ActionResult Index()
         {
             var chude = from cd in db.LOAINOITHATs select cd;
@@ -36,6 +34,12 @@ namespace TNCFurnitures.Controllers
                 var funi = from d in db.NOITHATs where d.MaLoaiNT == id select d;
                 return View(funi);
             }
+        }
+
+        public ActionResult Details(int id)
+        {
+            var product = from p in db.NOITHATs where p.MaNT == id select p;
+            return View(product.Single());
         }
     }
 }

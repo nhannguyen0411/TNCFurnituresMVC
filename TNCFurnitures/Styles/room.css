@@ -11,9 +11,9 @@
     margin-bottom: 15px;
 }
 
-.rooms img {
-    width: 100%;
-}
+    .rooms img {
+        width: 100%;
+    }
 
 .livingroom {
     margin-bottom: 15px;
@@ -34,15 +34,15 @@
     background-color: #fff;
 }
 
-.room-btn a {
-    padding: 1.5rem 7rem;
-    font-size: 1.6rem;
-}
+    .room-btn a {
+        padding: 1.5rem 7rem;
+        font-size: 1.6rem;
+    }
 
-.room-btn:hover a {
-    background-color: #56cfe1;
-    color: #fff !important;
-}
+    .room-btn:hover a {
+        background-color: #56cfe1;
+        color: #fff !important;
+    }
 
 .bottom-center {
     bottom: 0;
