@@ -40,12 +40,17 @@
         </tr>
     }
     <tr style="font-weight:bold; text-align:right; color:red">
-        <td colspan="4">Số lượng sách: @ViewBag.Tongsoluong</td>
+        <td colspan="4">Số lượng: @ViewBag.Tongsoluong</td>
         <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
     </tr>
     <tr style="font-weight:bold; color:blue; text-align:right">
         <td colspan="9">
             @Html.ActionLink("Xóa Giỏ Hàng", "RemoveAll")
+        </td>
+    </tr>
+    <tr style="font-weight:bold; color:blue; text-align:right">
+        <td colspan="9">
+            @Html.ActionLink("Đặt Hàng", "Order", "Cart")
         </td>
     </tr>
 </table>

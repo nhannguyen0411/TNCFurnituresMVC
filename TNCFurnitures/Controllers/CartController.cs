@@ -110,5 +110,54 @@ namespace TNCFurnitures.Controllers
             lstCart.Clear();
             return RedirectToAction("Index", "Home");
         }
+        [HttpGet]
+        public ActionResult Order()
+        {
+            if(Session["NguoiDung"] == null || Session["NguoiDung"].ToString() == "")
+            {
+                return RedirectToAction("Login", "User");
+            }
+            if(Session["Cart"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            List<Cart> lstCart = GetTheCart();
+            ViewBag.TongSoLuong = TongSoLuong();
+            ViewBag.TongTien = TongTien();
+            return View(lstCart);
+        }
+        [HttpPost]
+        public ActionResult Order(FormCollection collection)
+        {
+            DONDATHANG ddh = new DONDATHANG();
+            NGUOIDUNG nd = (NGUOIDUNG)Session["NguoiDung"];
+            List<Cart> lstCart = GetTheCart();
+            ddh.MaND = nd.MaND;
+            ddh.NgayDat = DateTime.Now;
+            var NgayGiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            ddh.NgayGiao = DateTime.Parse(NgayGiao);
+            ddh.TinhTrangGiaoHang = false;
+            ddh.DaThanhToan = false;
+            db.DONDATHANGs.InsertOnSubmit(ddh);
+            db.SubmitChanges();
+            foreach(var item in lstCart)
+            {
+                CHITIETDONTHANG ctdh = new CHITIETDONTHANG();
+                ctdh.MaDonHang = ddh.MaDonHang;
+                ctdh.MaNT = item.iMaNT;
+                ctdh.SoLuong = item.iSoLuong;
+                ctdh.DonGia = (decimal)item.dDonGia;
+                db.CHITIETDONTHANGs.InsertOnSubmit(ctdh);
+            }
+            db.SubmitChanges();
+            Session["Cart"] = null;
+            return RedirectToAction("ConfirmOrder", "Cart");
+        }
+
+        public ActionResult ConfirmOrder()
+        {
+            return View();
+        }
     }
 }
