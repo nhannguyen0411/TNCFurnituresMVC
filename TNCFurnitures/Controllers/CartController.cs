@@ -78,5 +78,37 @@ namespace TNCFurnitures.Controllers
             ViewBag.Tongtien = TongTien();
             return PartialView();
         }
+        public ActionResult DeleteTheCart(int iMaSP)
+        {
+            List<Cart> lstCart = GetTheCart();
+            Cart sp = lstCart.SingleOrDefault(n => n.iMaNT == iMaSP);
+            if (sp != null)
+            {
+                lstCart.RemoveAll(n => n.iMaNT == iMaSP);
+                return RedirectToAction("Cart");
+            }
+            if (lstCart.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Cart");
+        }
+        public ActionResult UpdateTheCart(int iMaSP, FormCollection f)
+        {
+            List<Cart> lstCart = GetTheCart();
+            Cart sp = lstCart.SingleOrDefault(n => n.iMaNT == iMaSP);
+            if (sp != null)
+            {
+                sp.iSoLuong = int.Parse(f["txtSoluong"].ToString());
+            }
+            return RedirectToAction("Cart");
+        }
+
+        public ActionResult RemoveAll()
+        {
+            List<Cart> lstCart = GetTheCart();
+            lstCart.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
