@@ -157,22 +157,41 @@
     <Content Include="Images\bed2.jpg" />
     <Content Include="Images\bed3.jpg" />
     <Content Include="Images\bed4.jpg" />
+    <Content Include="Images\bed5.jpg" />
+    <Content Include="Images\bed6.jpg" />
+    <Content Include="Images\bed7.jpg" />
+    <Content Include="Images\bed8.jpg" />
     <Content Include="Images\carpet1.jpg" />
     <Content Include="Images\carpet2.jpg" />
     <Content Include="Images\carpet3.jpg" />
     <Content Include="Images\carpet4.jpg" />
+    <Content Include="Images\carpet5.jpg" />
+    <Content Include="Images\carpet6.jpg" />
+    <Content Include="Images\carpet7.jpg" />
+    <Content Include="Images\carpet8.jpg" />
     <Content Include="Images\chair1.jpg" />
     <Content Include="Images\chair2.jpg" />
     <Content Include="Images\chair3.jpg" />
     <Content Include="Images\chair4.jpg" />
+    <Content Include="Images\chair5.jpg" />
+    <Content Include="Images\chair6.jpg" />
+    <Content Include="Images\chair7.jpg" />
+    <Content Include="Images\chair8.jpg" />
     <Content Include="Images\desk1.jpg" />
     <Content Include="Images\desk2.jpg" />
     <Content Include="Images\desk3.jpg" />
     <Content Include="Images\desk4.jpg" />
+    <Content Include="Images\desk6.jpg" />
+    <Content Include="Images\desk7.jpg" />
+    <Content Include="Images\desk8.jpg" />
     <Content Include="Images\lamp1.jpg" />
     <Content Include="Images\lamp2.jpg" />
     <Content Include="Images\lamp3.jpg" />
     <Content Include="Images\lamp4.jpg" />
+    <Content Include="Images\lamp5.jpg" />
+    <Content Include="Images\lamp6.jpg" />
+    <Content Include="Images\lamp7.jpeg" />
+    <Content Include="Images\lamp8.jpeg" />
     <Content Include="Images\mail.png" />
     <Content Include="Images\new-logo-2.jpg" />
     <Content Include="Images\new-logo.png" />
@@ -186,10 +205,18 @@
     <Content Include="Images\sofa2.jpg" />
     <Content Include="Images\sofa3.jpg" />
     <Content Include="Images\sofa4.jpg" />
+    <Content Include="Images\sofa5.jpg" />
+    <Content Include="Images\sofa6.jpg" />
+    <Content Include="Images\sofa7.jpg" />
+    <Content Include="Images\sofa8.jpg" />
     <Content Include="Images\wardobe1.jpg" />
     <Content Include="Images\wardobe2.jpg" />
     <Content Include="Images\wardobe3.jpeg" />
     <Content Include="Images\wardobe4.jpg" />
+    <Content Include="Images\wardrobe5.jpg" />
+    <Content Include="Images\wardrobe6.jpg" />
+    <Content Include="Images\wardrobe7.jpg" />
+    <Content Include="Images\wardrobe8.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Models\dbQLFurnitures.dbml">
@@ -197,6 +224,7 @@
       <LastGenOutput>dbQLFurnitures.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Images\desk5.jpg" />
     <None Include="Models\dbQLFurnitures.dbml.layout">
       <DependentUpon>dbQLFurnitures.dbml</DependentUpon>
     </None>

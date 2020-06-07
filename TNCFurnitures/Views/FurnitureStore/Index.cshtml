@@ -1,12 +1,31 @@
-﻿@model IEnumerable<TNCFurnitures.Models.LOAINOITHAT>
+﻿@using TNCFurnitures.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<NOITHAT>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Đây là một trang</h2>
-@foreach(var item in Model)
-{
-    <p>@item.TenLoaiNT</p>
-}
+<h2 style="text-align: center">Noi that moi</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <h4>
+                <a href="#">@item.TenNT</a>
+            </h4>
+            <p>If you like that. Don't do anything.</p>
+        </div>
+    }
+</div>
 
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page=>Url.Action("Index", new { page = page }))
+</div>
+
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using TNCFurnitures.Models;
 
+using PagedList;
+using PagedList.Mvc;
+
 namespace TNCFurnitures.Controllers
 {
     public class FurnitureStoreController : Controller
@@ -16,23 +19,28 @@ namespace TNCFurnitures.Controllers
             return db.NOITHATs.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            var chude = from cd in db.LOAINOITHATs select cd;
-            return View(chude);
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+
+            var ntmoi = LayNoiThat(20);
+            return View(ntmoi.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult Products(int id, bool isRoom)
+        public ActionResult Products(int ? page, int id, bool isRoom)
         {
-            if(isRoom)
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            if (isRoom)
             {
                 var room = from r in db.NOITHATs where r.MaLoaiPhong == id select r;
-                return View(room);
+                return View(room.ToPagedList(pageNum, pageSize));
             }
             else
             {
                 var funi = from d in db.NOITHATs where d.MaLoaiNT == id select d;
-                return View(funi);
+                return View(funi.ToPagedList(pageNum, pageSize));
             }
         }
 
