@@ -17,9 +17,9 @@
         <div class="item row" style="background-color: #fff">
             <div class="col-12 col-md-6 d-flex align-items-center">
                 <div class="buttons">
-                    <span class="btn btn-danger">
+                    <a href="@Url.Action("DeleteTheCart", "Cart", new { @iMaSp = item.iMaNT })" class="btn btn-danger">
                         <i class="fas fa-times"></i>
-                    </span>
+                    </a>
                 </div>
 
                 <div class="image">
@@ -33,14 +33,14 @@
             
             <div class="col-6 col-md-3 d-flex align-items-center">
                 <div class="quantity">
-                    <button class="plus-btn" type="button" name="button">
+                    <a href="@Url.Action("MinusItem", "Cart", new { @iMaSp = item.iMaNT })" class="minus-btn btn btn-info" name="button">
                         <i class="fas fa-minus"></i>
 
-                    </button>
+                    </a>
                     <input type="text" name="name" value="@item.iSoLuong">
-                    <button class="minus-btn" type="button" name="button">
+                    <a href="@Url.Action("PlusItem", "Cart", new { @iMaSp = item.iMaNT })" class="plus-btn btn btn-info" name="button">
                         <i class="fas fa-plus"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
     <div class="totals pt-5 pb-5">
         <div class="totals-item d-flex justify-content-between ml-5 mr-5">
             <label>Subtotal:</label>
-            <div class="totals-value" id="cart-subtotal">71.97</div>
+            <div class="totals-value" id="cart-subtotal">@String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</div>
         </div>
         <div class="totals-item d-flex justify-content-between ml-5 mr-5 mt-3">
             <label>Shipping:</label>
@@ -64,7 +64,7 @@
         </div>
         <div class="totals-item totals-item-total d-flex justify-content-between ml-5 mr-5 mt-3">
             <label>Total:</label>
-            <div class="totals-value" id="cart-total">90.57</div>
+            <div class="totals-value" id="cart-total">@String.Format("{0:0,0}", ViewBag.Tongtien + 15000) VNĐ</div>
         </div>
         <div class="d-flex justify-content-around">
             <a href="@Url.Action("RemoveAll", "Cart")"
@@ -125,41 +125,4 @@
             </td>
         </tr>
     </table>*@
-
-<script>
-    $('.like-btn').on('click', function () {
-        $(this).toggleClass('is-active');
-    });
-
-    $('.minus-btn').on('click', function (e) {
-        e.preventDefault();
-        var $this = $(this);
-        var $input = $this.closest('div').find('input');
-        var value = parseInt($input.val());
-
-        if (value & amp; gt; 1) {
-        value = value - 1;
-    } else {
-        value = 0;
-    }
-
-    $input.val(value);
-
-});
-
-    $('.plus-btn').on('click', function (e) {
-        e.preventDefault();
-        var $this = $(this);
-        var $input = $this.closest('div').find('input');
-        var value = parseInt($input.val());
-
-        if (value & amp; lt; 100) {
-        value = value + 1;
-    } else {
-        value = 100;
-    }
-
-    $input.val(value);
-});
-</script>
 

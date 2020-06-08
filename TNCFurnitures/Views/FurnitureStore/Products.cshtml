@@ -2,7 +2,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous">
-<link href="~/Styles/not2-products.css" rel="stylesheet" />
+<link href="~/Styles/products.css" rel="stylesheet" />
 @using TNCFurnitures.Models;
 @using PagedList.Mvc;
 @model PagedList.PagedList<NOITHAT>
@@ -16,16 +16,17 @@
         @foreach (var item in Model)
         {
             @*<div class="col-12 col-md-6 col-lg-4 text-center mt-5">
-                <a href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })" class="product"></a>
-                <p class="font-weight-bold text-dark mt-3 product-name">@item.TenNT</p>
-                <p class="font-weight-bold text-dark mt-3 product-price">@item.GiaBan VNĐ</p>
-            </div>*@
+                    <a href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })" class="product"></a>
+                    <p class="font-weight-bold text-dark mt-3 product-name">@item.TenNT</p>
+                    <p class="font-weight-bold text-dark mt-3 product-price">@item.GiaBan VNĐ</p>
+                </div>*@
             <div class="col-12 col-md-6 col-lg-4 text-center mt-5 d-flex justify-content-center">
                 <div class="card" style="width: 35rem; border-radius:2rem">
                     <img src="~/Images/@item.AnhBia" class="product-image card-img-top align-self-center" />
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold text-dark product-name">@item.TenNT</h5>
-                        <p class="card-text text-secondary product-price">@item.MoTa</p>
+                        <p class="card-text text-secondary product-description">@item.MoTa</p>
+                        <p class="font-weight-bold text-dark mt-3 product-price">@item.GiaBan VNĐ</p>
                         <a href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })"
                            class="product btn btn-primary font-weight-bold mt-3"
                            style="padding:1rem 3rem; font-size:1.5rem; border-radius:10px;">

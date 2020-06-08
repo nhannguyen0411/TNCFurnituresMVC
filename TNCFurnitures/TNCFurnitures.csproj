@@ -248,7 +248,7 @@
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\home.css" />
     <Content Include="Styles\not-footer.css" />
-    <Content Include="Styles\not2-products.css" />
+    <Content Include="Styles\products.css" />
     <Content Include="Styles\order.css" />
     <Content Include="Styles\register.css" />
     <Content Include="Styles\room.css" />

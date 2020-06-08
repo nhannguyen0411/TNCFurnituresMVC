@@ -26,7 +26,13 @@
 
 .product-name {
     font-size: 2rem;
+}
 
+.product-description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.5rem;
 }
 
 .product-price {

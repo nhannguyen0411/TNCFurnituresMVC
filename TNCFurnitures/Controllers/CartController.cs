@@ -104,6 +104,31 @@ namespace TNCFurnitures.Controllers
             return RedirectToAction("Cart");
         }
 
+        public ActionResult PlusItem(int iMaSP)
+        {
+            List<Cart> lstCart = GetTheCart();
+            Cart sp = lstCart.SingleOrDefault(n => n.iMaNT == iMaSP);
+            if (sp != null)
+            {
+                sp.iSoLuong ++;
+            }
+            return RedirectToAction("Cart");
+        }
+
+        public ActionResult MinusItem(int iMaSP)
+        {
+            List<Cart> lstCart = GetTheCart();
+            Cart sp = lstCart.SingleOrDefault(n => n.iMaNT == iMaSP);
+            if (sp.iSoLuong > 1)
+            {
+                sp.iSoLuong--;
+            } else
+            {
+                DeleteTheCart(iMaSP);
+            }
+            return RedirectToAction("Cart");
+        }
+
         public ActionResult RemoveAll()
         {
             List<Cart> lstCart = GetTheCart();
