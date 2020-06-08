@@ -2,15 +2,29 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous">
+<link href="~/Styles/details.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
-<div class="container">
-    <img src="~/Images/@Model.AnhBia" style="height: 18rem; width: 18rem" />
-    <div style="font-size: 26px">@Model.TenNT</div>
-    <a href="@Url.Action("AddToCart", "Cart", new { @iMaNT = @Model.MaNT, @strURL = Request.Url.ToString() })" >Add To Cart</a>
+<div class="container details d-flex justify-content-center">
+    <div class="row w-100">
+        <div class="image-ctn col-12 col-lg-6 col-xl-5">
+            <img src="~/Images/@Model.AnhBia" class="detail-image" />
+        </div>
+
+        <div class="info-ctn col-12 col-lg-6 col-xl-7">
+            <div class="font-weight-bold detail-name">@Model.TenNT</div>
+            <div class="detail-price mt-4">@Model.GiaBan VNĐ</div>
+            <div class="detail-ton mt-4">Remain: @Model.SoLuongTon left</div>
+            <div class="detail-description mt-4">Description: @Model.MoTa</div>
+            <a href="@Url.Action("AddToCart", "Cart", new { @iMaNT = @Model.MaNT, @strURL = Request.Url.ToString() })"
+               class="btn btn-success text-uppercase font-weight-bold mt-4" style="padding: 1rem 3rem; font-size: 1.5rem; border-radius:10px;">
+                Add To Cart
+            </a>
+        </div>
+    </div>
 </div>
 

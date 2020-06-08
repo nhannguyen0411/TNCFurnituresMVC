@@ -68,7 +68,7 @@
             </div>
             <div class="header-2-icon d-flex col-lg-3 justify-content-end p-0 col-4">
                 <div class="has-menu h2-icon account-icon position-relative d-flex">
-                    <div class="text-white cursor-pointer hover transition"><i class="far fa-user-circle"></i></div>
+                    <div class="text-white cursor-pointer hover transition"><i class="far fa-user"></i></div>
                     <div class="submenu account-submenu position-absolute">
                         <div class="bg-white">
                             <ul class="one-col-content">
@@ -81,7 +81,7 @@
                 <div class="cart-icon h2-icon">
                     <a href="@Url.Action("Cart", "Cart")" id="cart" class="text-white hover-blue transition position-relative">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="icon-item-badge badge badge-pill badge-light position-absolute">@Html.Action("CartPartial", "Cart")</span>
+                        @Html.Action("CartPartial", "Cart")
                     </a>
                 </div>
             </div>
@@ -199,7 +199,7 @@
     <div id="bar-body-gray" class="body-gray d-none transition d-lg-none"></div>
     <div id="cart-body-gray" class="body-gray d-none transition"></div>
 
-    <div class="container-fluid" style="padding:0 !important; margin:0 !important;">
+    <div class="container-fluid" style="padding:0 !important; margin:0 !important; background-color:#f6f6f8">
         @RenderBody()
     </div>
 
@@ -236,7 +236,7 @@
                         <a class="text-gray hover-blue transition" href="#"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2 pt-6">
+                <div class="col-12 col-md-6 col-lg-3 pt-6">
                     <ul>
                         <li class="font-weight-bold pb-6 footer-list-title">Categories</li>
                         <li class="pb-175">
@@ -259,7 +259,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2 pt-6">
+                <div class="col-12 col-md-6 col-lg-3 pt-6">
                     <ul>
                         <li class="font-weight-bold pb-6 footer-list-title">Information</li>
                         <li class="pb-175">
@@ -282,7 +282,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2 pt-6">
+                <div class="col-12 col-md-6 col-lg-3 pt-6">
                     <ul>
                         <li class="font-weight-bold pb-6 footer-list-title">Quick Links</li>
                         <li class="pb-175">
@@ -305,14 +305,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 pt-6 pb-175">
-                    <div class="text-gray pb-175">Subscribe to our newsletter and get 10% off your first purchase</div>
-
-                    <div class="footer-input position-relative">
-                        <input class="footer-input-mail" type="email" name="email" placeholder="Your email address">
-                        <button type="button" class="f-btn btn btn-dark position-absolute transition">Subcribe</button>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="copyright mt-5">
@@ -321,7 +313,7 @@
                     <div class="col-12 col-lg-8 d-flex justify-content-center justify-content-lg-start text-center text-gray p-3">
                         Copyright © 2017 Claue. All rights reserved. Powered by Magesolution
                     </div>
-                    <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end p-3 pb-lg-0">
+                    <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end p-3">
                         <ul class="d-flex align-items-center m-0">
                             <li>
                                 <a class="text-gray hover-blue transition" href="#">Blog</a>

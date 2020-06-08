@@ -1,0 +1,9 @@
+﻿@media (max-width: 992px) {
+    .bang {
+        width: 100% !important;
+    }
+}
+
+.field {
+    padding-left: 4rem !important;
+}

@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\FurnitureStoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -211,12 +212,12 @@
     <Content Include="Images\sofa8.jpg" />
     <Content Include="Images\wardobe1.jpg" />
     <Content Include="Images\wardobe2.jpg" />
-    <Content Include="Images\wardobe3.jpeg" />
+    <Content Include="Images\wardobe3.jpg" />
     <Content Include="Images\wardobe4.jpg" />
-    <Content Include="Images\wardrobe5.jpg" />
-    <Content Include="Images\wardrobe6.jpg" />
-    <Content Include="Images\wardrobe7.jpg" />
-    <Content Include="Images\wardrobe8.jpg" />
+    <Content Include="Images\wardobe5.jpg" />
+    <Content Include="Images\wardobe6.jpg" />
+    <Content Include="Images\wardobe7.jpg" />
+    <Content Include="Images\wardobe8.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Models\dbQLFurnitures.dbml">
@@ -240,11 +241,15 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\not-cart.css" />
     <Content Include="Styles\default.css" />
+    <Content Include="Styles\details.css" />
     <Content Include="Styles\not-header-2.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\home.css" />
     <Content Include="Styles\not-footer.css" />
+    <Content Include="Styles\not2-products.css" />
+    <Content Include="Styles\order.css" />
     <Content Include="Styles\register.css" />
     <Content Include="Styles\room.css" />
     <Content Include="Web.config" />
@@ -273,6 +278,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
