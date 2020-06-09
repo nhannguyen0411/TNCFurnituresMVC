@@ -50,42 +50,42 @@
         <elementListCompartment Id="cae177fd-51a4-4410-a351-dc37a755906f" absoluteBounds="1.3900000000000001, 7.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.125 : 2.91429768880208); (6.875 : 2.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.125 : 3.10984537760417); (6.875 : 3.10984537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLFurnituresDataContext/NOITHAT/NOITHAT_CHITIETDONTHANG" />
       <nodes>
         <classShapeMoniker Id="41c34da7-73b9-4bac-80ab-4d19240ea231" />
         <classShapeMoniker Id="e1286c70-1b95-4b40-a9b3-013576cf1e83" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.125 : 10.9815991210937); (8.28125 : 10.9815991210937); (8.28125 : 3.70359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.125 : 10.9815991210937); (8.28125 : 10.9815991210937); (8.28125 : 3.70359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLFurnituresDataContext/DONDATHANG/DONDATHANG_CHITIETDONTHANG" />
       <nodes>
         <classShapeMoniker Id="a50feea6-7ef7-424b-840e-82a0b6f50913" />
         <classShapeMoniker Id="e1286c70-1b95-4b40-a9b3-013576cf1e83" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.375 : 2.97199625651042); (4.125 : 2.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.375 : 2.97199625651042); (4.125 : 2.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLFurnituresDataContext/LOAINOITHAT/LOAINOITHAT_NOITHAT" />
       <nodes>
         <classShapeMoniker Id="64022087-4ad9-4bee-88fa-c647eb01ffde" />
         <classShapeMoniker Id="41c34da7-73b9-4bac-80ab-4d19240ea231" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.375 : 5.28125); (4.18228916666667 : 5.28125 : JumpStart); (4.34895583333333 : 5.28125 : JumpEnd); (4.46875 : 5.28125); (4.46875 : 4.42470540364583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.375 : 5.28125); (4.46875 : 5.28125); (4.46875 : 4.42470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLFurnituresDataContext/LOAIPHONG/LOAIPHONG_NOITHAT" />
       <nodes>
         <classShapeMoniker Id="225a28c3-a369-4936-9f36-40431136d2d6" />
         <classShapeMoniker Id="41c34da7-73b9-4bac-80ab-4d19240ea231" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.375 : 10.9815991210937); (4.125 : 10.9815991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.375 : 10.9815991210937); (4.125 : 10.9815991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLFurnituresDataContext/NGUOIDUNG/NGUOIDUNG_DONDATHANG" />
       <nodes>
         <classShapeMoniker Id="92e8ffe1-0382-4101-b46d-99baf97eb4ac" />
         <classShapeMoniker Id="a50feea6-7ef7-424b-840e-82a0b6f50913" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.375 : 7.92234537760417); (4.2656225 : 7.92234537760417); (4.2656225 : 4.42470540364583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.375 : 7.92234537760417); (4.2656225 : 7.92234537760417); (4.2656225 : 4.42470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLFurnituresDataContext/NHASANXUAT/NHASANXUAT_NOITHAT" />
       <nodes>
         <classShapeMoniker Id="6dfca9d6-8fc0-436b-b310-85f1159ca81f" />

@@ -1,9 +1,8 @@
 ﻿<link href="~/Styles/home.css" rel="stylesheet" />
 <link href="~/Styles/default.css" rel="stylesheet" />
 <link href="~/Styles/room.css" rel="stylesheet" />
-@{
-    ViewBag.Title = "Home Page";
-}
+<link href="~/Styles/hot.css" rel="stylesheet" />
+@{ ViewBag.Title = "Home Page"; }
 
 <div class="row carousel-holder" style="margin:0 !important;">
     <div class="col-md-12" style="padding:0 !important;">
@@ -15,13 +14,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img class="slide-image slider-img" src="~/Images/slider-3.jpg" />
+                    <img class="slide-image slider-img" src="~/Images/slider3.jpg" />
                 </div>
                 <div class="item">
-                    <img class="slide-image slider-img" src="~/Images/slider-2.jpg" />
+                    <img class="slide-image slider-img" src="~/Images/slider2.jpg" />
                 </div>
                 <div class="item">
-                    <img class="slide-image slider-img" src="~/Images/slider-1.jpg" />
+                    <img class="slide-image slider-img" src="~/Images/slider1.jpg" />
                 </div>
             </div>
             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -35,48 +34,51 @@
 </div>
 
 <div class="rooms">
+    <div class="hd text-center" style="padding-bottom: 10px;">
+        <h2 class="hd-title d-inline-block position-relative">ROOMS</h2>
+        <div class="hd-about text-secondary font-italic">Furnitures suitable for you</div>
+    </div>
     <div class="container-fluid p-0">
         <div class="row">
-            <div class="room bedroom col-12 col-md-6 bedroom-sm">
-                <div class="overflow-hidden position-relative">
-                    <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//o/f/office_banner.jpg">
+            <div class="room col-12 col-md-6">
+                <div class="overflow-hidden position-relative hi">
+                    <img class="transition" src="https://st.hzcdn.com/simgs/1ab16f760122f5ad_4-2090/home-design.jpg">
                     <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
                         <div class="room-btn">
-                            <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Bedroom</a>
+                            <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = true })"
+                               class="font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Bedroom</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 overflow-hidden not-bedroom">
-                <div class="row">
-                    <div class="room livingroom col-12 position-relative">
-                        <div class="overflow-hidden position-relative">
-                            <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//l/i/living_banner.jpg">
-                            <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
-                                <div class="room-btn">
-                                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Living Room</a>
-                                </div>
-                            </div>
+            <div class="room col-12 col-md-6 ">
+                <div class="overflow-hidden position-relative hi">
+                    <img class="transition" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/living-room-9-1537479929.jpg">
+                    <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
+                        <div class="room-btn">
+                            <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = true })"
+                               class="font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Living Room</a>
                         </div>
                     </div>
-                    <div class="room bathroom col-12 col-md-6 position-relative bathroom-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//b/e/bedroom_banner.jpg" style="height:40.4rem;">
-                            <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
-                                <div class="room-btn">
-                                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Bathroom</a>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="room col-12 col-md-6">
+                <div class="overflow-hidden position-relative hi">
+                    <img class="transition" src="https://images.victorianplumbing.co.uk/images/ALPSFS_nl.jpg">
+                    <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
+                        <div class="room-btn">
+                            <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = true })"
+                               class="font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Bathroom</a>
                         </div>
                     </div>
-                    <div class="room diningroom col-12 col-md-6 position-relative diningroom-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img class="transition" src="http://themes.magesolution.com/claue/m2/pub/media/promobanners//d/i/dining_banner.jpg" style="height:40.4rem;">
-                            <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
-                                <div class="room-btn">
-                                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Dining Room</a>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="room col-12 col-md-6">
+                <div class="overflow-hidden position-relative hi">
+                    <img class="transition" src="https://www.sothebysrealty.com/extraordinary-living-blog/wp-content/uploads/2019/11/imagereader.aspx-15-2-768x512.jpeg">
+                    <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
+                        <div class="room-btn">
+                            <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Dining Room</a>
                         </div>
                     </div>
                 </div>
@@ -84,3 +86,208 @@
         </div>
     </div>
 </div>
+
+
+<div class="best-seller" style="background-color:#f6f6f8; padding-bottom:20px;">
+    <div class="container">
+        <div class="hd text-center" style="padding-bottom: 10px;">
+            <h2 class="hd-title">HOT PRODUCTS</h2>
+            <div class="hd-about text-secondary">Top view of the week</div>
+        </div>
+        <div class="p-nav text-center pt-4">
+            <ul class="d-flex justify-content-center">
+                <li id="p-nav-item-1" class="p-nav-item cursor-pointer p-border p-border-color transition"><a id="p-nav-link-1" class="p-nav-link p-link-color transition">Best Seller</a></li>
+                <li id="p-nav-item-2" class="p-nav-item cursor-pointer p-border transition"><a id="p-nav-link-2" class="p-nav-link transition">New Arrivals</a></li>
+
+            </ul>
+        </div>
+        <div id="bs-block" class="h-block row">
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="http://themes.magesolution.com/claue/m2/pub/media/catalog/product/cache/5ab063e30dbf74cb9bb799f550ede913/1/0/10_7.jpg">
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="http://themes.magesolution.com/claue/m2/pub/media/catalog/product/cache/5ab063e30dbf74cb9bb799f550ede913/1/0/10.jpg">
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="http://themes.magesolution.com/claue/m2/pub/media/catalog/product/cache/5ab063e30dbf74cb9bb799f550ede913/1/0/10_2_.jpg">
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="http://themes.magesolution.com/claue/m2/pub/media/catalog/product/cache/5ab063e30dbf74cb9bb799f550ede913/9/_/9_6.jpg">
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="http://themes.magesolution.com/claue/m2/pub/media/catalog/product/cache/5ab063e30dbf74cb9bb799f550ede913/9/_/9.jpg">
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="~/Images/carpet8.jpg" />
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="http://themes.magesolution.com/claue/m2/pub/media/catalog/product/cache/5ab063e30dbf74cb9bb799f550ede913/8/_/8.jpg">
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+            <div class="h-item col-12 col-sm-6 col-lg-3">
+                <div class="position-relative">
+                    <a href="#">
+                        <img src="~/Images/bed5.jpg" />
+                    </a>
+                    <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                        <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                            <div class="so-2-btn transition position-absolute">
+                                <a class="so-2-link transition" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tp-info pt-2">
+                    <p class="tp-name transition">Orange Chair</p>
+                    <p class="tp-price">$125.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="na-block" class="h-block na-block d-none">
+            <div class="p-3">
+                There are no products matching the selection.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let navItem1 = document.getElementById('p-nav-item-1');
+    let navItem2 = document.getElementById('p-nav-item-2');
+
+    let linkItem1 = document.getElementById('p-nav-link-1');
+    let linkItem2 = document.getElementById('p-nav-link-2');
+
+    let bsBlock = document.getElementById('bs-block');
+    let naBlock = document.getElementById('na-block');
+
+    navItem1.addEventListener('click', checkBestSeller);
+    navItem2.addEventListener('click', checkNewArrivals);
+    function checkBestSeller() {
+        let check = navItem1.getAttribute('class');
+        if (!check.includes('p-border-color')) {
+            navItem1.classList.add('p-border-color');
+            navItem2.classList.remove('p-border-color');
+            linkItem1.classList.add('p-link-color');
+            linkItem2.classList.remove('p-link-color');
+            bsBlock.classList.remove('d-none');
+            naBlock.classList.add('d-none');
+        }
+    }
+    function checkNewArrivals() {
+        let check = navItem2.getAttribute('class');
+        if (!check.includes('p-border-color')) {
+            navItem2.classList.add('p-border-color');
+            navItem1.classList.remove('p-border-color');
+            linkItem2.classList.add('p-link-color');
+            linkItem1.classList.remove('p-link-color');
+            naBlock.classList.remove('d-none');
+            bsBlock.classList.add('d-none');
+        }
+    }
+</script>

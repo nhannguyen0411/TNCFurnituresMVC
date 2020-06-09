@@ -1,0 +1,121 @@
+﻿<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+<link href="~/Styles/admin.css" rel="stylesheet" />
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="container-login100">
+        <div class="wrap-login100">
+            @using (Html.BeginForm())
+            {
+                <form id="" class="login100-form validate-form">
+                    <span class="login100-form-title">
+                        <img src="~/Images/new-logo-2.jpg" style="width: 70%; margin: 3rem 0;" />
+                    </span>
+                    <span class="login100-form-title">
+                        <i class="zmdi zmdi-font"></i>
+                    </span>
+
+                    <div id="valid-email" class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                        <input id="email" class="input100" type="text" name="email">
+                        <span class="focus-input100" data-placeholder="Email"></span>
+                    </div>
+
+                    <div id="valid-pass" class="wrap-input100 validate-input" data-validate="Enter password">
+                        <span class="btn-show-pass">
+                            <i class="zmdi zmdi-eye"></i>
+                        </span>
+                        <input id="password" class="input100" type="password" name="pass">
+                        <span class="focus-input100" data-placeholder="Password"></span>
+                    </div>
+
+                    <div style="color: red; text-align: center">@ViewData["Error"]</div>
+                    @*<div style="color: red; text-align: center">@ViewBag.ErrorMessage</div>*@
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button id="btn" type="submit" class="login100-form-btn font-weight-bold">
+                                Login
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-3">
+                        <span class="txt1">
+                            New to TNCFurnitures?
+                        </span>
+
+                        <a class="txt2" href="#">
+                            Sign up
+                        </a>
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+
+    <script>
+        document.getElementById("email").addEventListener("blur", function (e) {
+            console.log(document.getElementById("email").value);
+            if (document.getElementById("email").value != "") {
+                document.getElementById("email").classList.add('has-val');
+            }
+            else {
+                document.getElementById("email").classList.remove('has-val');
+            }
+        })
+
+        document.getElementById("password").addEventListener("blur", function (e) {
+            console.log(document.getElementById("password").value);
+            if (document.getElementById("password").value != "") {
+                document.getElementById("password").classList.add('has-val');
+            }
+            else {
+                document.getElementById("password").classList.remove('has-val');
+            }
+        })
+
+        const inputEmail = document.getElementById("valid-email");
+        const inputPassword = document.getElementById("valid-pass");
+        document.getElementById("btn").addEventListener("click", function (e) {
+            alert("Eat event");
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            if (!email && !password) {
+                inputEmail.classList.add("focus-err");
+                inputPassword.classList.add("focus-err");
+                alert("Email and Password are required");
+                e.preventDefault();
+            }
+            else if (!email) {
+                inputEmail.classList.add("focus-err");
+                inputPassword.classList.remove("focus-err");
+                alert("Email is required");
+                e.preventDefault();
+            }
+            else if (!password) {
+                inputPassword.classList.add("focus-err");
+                inputEmail.classList.remove("focus-err");
+                alert("Password is required");
+                e.preventDefault();
+            }
+            else {
+                alert("Login successfully");
+            }
+        })
+    </script>
+</body>
+</html>

@@ -199,9 +199,9 @@
     <Content Include="Images\order.png" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\cart.png" />
-    <Content Include="Images\slider-1.jpg" />
-    <Content Include="Images\slider-2.jpg" />
-    <Content Include="Images\slider-3.jpg" />
+    <Content Include="Images\slider1.jpg" />
+    <Content Include="Images\slider2.jpg" />
+    <Content Include="Images\slider3.jpg" />
     <Content Include="Images\sofa1.jpg" />
     <Content Include="Images\sofa2.jpg" />
     <Content Include="Images\sofa3.jpg" />
@@ -241,6 +241,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\admin.css" />
+    <Content Include="Styles\hot.css" />
     <Content Include="Styles\not-cart.css" />
     <Content Include="Styles\default.css" />
     <Content Include="Styles\details.css" />
@@ -275,10 +277,12 @@
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\Order.cshtml" />
     <Content Include="Views\Cart\ConfirmOrder.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
