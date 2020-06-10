@@ -41,6 +41,7 @@ namespace TNCFurnitures.Controllers
             else
             {
                 var funi = from d in db.NOITHATs where d.MaLoaiNT == id select d;
+                ViewBag.Thongbao = "Desk";
                 return View(funi.ToPagedList(pageNum, pageSize));
             }
         }

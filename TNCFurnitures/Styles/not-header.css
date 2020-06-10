@@ -1,4 +1,9 @@
-﻿.header-2 {
+﻿.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+.header-2 {
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
     position: fixed;
@@ -96,16 +101,12 @@ ul {
     left: -1rem;
 }
 
-.header-2-navigation {
-    height: 100%;
-}
-
 .header-2 .dropdown {
     align-items: center;
     height: 100%;
 }
 
-.header-2 .has-menu {
+.header-2 .has-menu a {
     padding: 1.3rem 2rem;
 }
 
@@ -122,7 +123,7 @@ ul {
 }
 
 .header-2-bar {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .header-2 .has-menu:hover .submenu, .pg-submenu, .access-submenu {
@@ -410,10 +411,10 @@ ul {
 }
 
 .bar-close-btn {
-    position: absolute;
+    position: fixed;
     top: 1rem;
     right: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     z-index: 9;
     animation-name: bar-btn-appear;
     animation-duration: .1s;
@@ -524,7 +525,7 @@ ul {
     top: 0;
     z-index: 8;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0,0,0,0.8);
 }
 
@@ -534,7 +535,7 @@ ul {
 }
 
 .cart-close-btn {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .cart-title {

@@ -1,0 +1,58 @@
+﻿.details {
+    padding-top: 9rem;
+    padding-bottom: 4rem;
+}
+
+.detail-image {
+    height: 40rem; 
+    width: 40rem;
+}
+
+.detail-name {
+    font-size: 3rem;
+}
+
+.detail-ton {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.detail-rating {
+    margin-top: 1.5rem;
+}
+
+.detail-description {
+    font-size: 1.5rem;
+}
+
+.detail-price {
+    font-size: 2rem;
+}
+
+@media (min-width:992px) {
+    .image-ctn {
+        text-align: right;
+    }
+}
+
+@media (max-width:992px) {
+    .image-ctn {
+        text-align: center;
+    }
+
+    .detail-name {
+        text-align: center
+    }
+
+    .detail-ton {
+        text-align: center
+    }
+
+    .detail-rating {
+        text-align: center
+    }
+
+    .detail-bottom {
+        justify-content: center
+    }
+}

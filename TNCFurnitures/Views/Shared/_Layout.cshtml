@@ -3,18 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>TNC Furnitures</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Styles/layout.css")
-    <link href="~/Styles/not-header-2.css" rel="stylesheet" />
+    <link href="~/Styles/not-header.css" rel="stylesheet" />
     <link href="~/Styles/not-footer.css" rel="stylesheet" />
     <link href="~/Styles/default.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/216cd63880.js"></script>
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-
-
+<body class="stop-scrolling">
     <div class="container-fluid header-2">
         <div class="header-2-child d-flex justify-content-between">
             <div class="header-2-bar d-lg-none d-flex text-white align-items-center justify-content-start col-4 p-0">
@@ -25,7 +23,7 @@
                     <img src="~/Images/new-logo.png" style="width:15rem; height:4rem;" />
                 </a>
             </div>
-            <div class="header-2-navigation d-none d-lg-flex col-lg-6 justify-content-lg-center">
+            <div class="header-2-navigation d-none d-lg-flex col-lg-6 justify-content-lg-center align-self-center">
                 <ul class="dropdown d-flex">
                     <li id="home" class="has-menu position-relative cursor-pointer">
                         <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = false })" class="hover text-white transition">
@@ -35,7 +33,6 @@
                     <li class="has-menu position-relative cursor-pointer">
                         <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = false })" class="hover text-white position-relative transition">
                             Desk
-                            <span class="hd-badge badge badge-pill badge-info position-absolute">New</span>
                         </a>
                     </li>
                     <li class="has-menu position-relative cursor-pointer">
@@ -61,7 +58,6 @@
                     <li class="has-menu position-relative cursor-pointer">
                         <a href="@Url.Action("Products", "FurnitureStore", new { id = 7, isRoom = false })" class="hover text-white position-relative transition">
                             Carpet
-                            <span class="sale-badge hd-badge badge badge-pill badge-warning text-white position-absolute">Sale</span>
                         </a>
                     </li>
                 </ul>
@@ -93,101 +89,48 @@
         </div>
     </div>
 
-    <div id="cart-menu" class="cart bg-white position-fixed d-none">
-        <div class="cart-header text-white py-2 d-flex align-items-center">
-            <div id="cart-close" class="cart-close-btn pl-3 cursor-pointer">
-                <i class="fas fa-times"></i>
-            </div>
-            <div class="cart-title text-center font-weight-bold">
-                MINI CART
-            </div>
-        </div>
-        <div class="cart-content text-center p-4">
-            You have no items in your shopping cart.
-        </div>
-    </div>
-
     <div id="bar-menu" class="bar bg-white position-fixed d-none d-lg-none">
-        <div class="bar-header text-white d-flex">
-            <div id="bar-header-1" class="bar-header-tittle d-flex justify-content-center align-items-center font-weight-bold cursor-pointer transition">Menu</div>
-            <div id="bar-header-2" class="bar-header-tittle d-flex justify-content-center align-items-center font-weight-bold bar-header-border cursor-pointer transition">Account</div>
-            <div id="bar-header-3" class="bar-header-tittle d-flex justify-content-center align-items-center font-weight-bold cursor-pointer transition position-relative">
-                Setting
-            </div>
+        <div class="bar-header text-white d-flex" style="height:8rem;">
+            <div id="bar-header-1"
+                 class="bar-header-tittle d-flex justify-content-center align-items-center cursor-pointer transition"
+                 style="font-size:2rem;font-weight:500">Categories</div>
         </div>
         <div class="bar-content">
             <ul id="menu" class="menu">
                 <li class="menu-item has-item border-bottom d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = false })" class="text-dark cursor-pointer">Bed</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = false })"
+                       class="text-dark cursor-pointer"
+                       style="font-size:1.4rem;font-weight:500">Bed</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex position-relative">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = false })" class="text-dark">Desk</a>
-                    <span class="menu-item-badge badge badge-pill badge-info position-absolute">New</span>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = false })"
+                       class="text-dark"
+                       style="font-size:1.4rem;font-weight:500">Desk</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = false })" class="text-dark">Chair</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = false })"
+                       class="text-dark"
+                       style="font-size:1.4rem;font-weight:500">Chair</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = false })" class="text-dark">Sofa</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = false })"
+                       class="text-dark"
+                       style="font-size:1.4rem;font-weight:500">Sofa</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 5, isRoom = false })" class="text-dark">Wardrobe</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 5, isRoom = false })"
+                       class="text-dark"
+                       style="font-size:1.4rem;font-weight:500">Wardrobe</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 6, isRoom = false })" class="text-dark">Lamp</a>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 6, isRoom = false })"
+                       class="text-dark"
+                       style="font-size:1.4rem;font-weight:500">Lamp</a>
                 </li>
                 <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 7, isRoom = false })" class="text-dark">Carpet</a>
-                    <span class="menu-item-badge badge badge-pill badge-warning text-white position-absolute">Sale</span>
-                </li>
-            </ul>
-            <ul id="account-menu" class="account-menu d-none">
-                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="@Url.Action("Register", "User")" class="text-dark">Create an Account</a></li>
-                <li class="menu-item border-bottom cursor-pointer d-flex"><a href="@Url.Action("Login", "User")" class="text-dark">Sign In</a></li>
-            </ul>
-            <ul id="setting-menu" class="setting-menu d-none">
-                <li id="lang-btn" class="menu-item border-bottom cursor-pointer position-relative d-flex">
-                    <div>
-                        Austria
-                        <i class="fas fa-caret-down pl-3"></i>
-                    </div>
-                    <ul id="lang-menu" class="setting-item position-absolute d-none">
-                        <li class="d-flex align-items-center hover-blue">
-                            <a href="#" class="text-secondary h1-submenu-link transition">
-                                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg" class="submenu-img pr-2">English
-                            </a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <a href="#" class="text-secondary h1-submenu-link transition">
-                                <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" class="submenu-img pr-2">French
-                            </a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <a href="#" class="text-secondary h1-submenu-link transition">
-                                <img src="https://cdn.countryflags.com/thumbs/germany/flag-400.png" class="submenu-img pr-2">German
-                            </a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <a href="#" class="text-secondary h1-submenu-link transition">
-                                <img src="https://cdn.countryflags.com/thumbs/italy/flag-400.png" class="submenu-img pr-2">Italy
-                            </a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <a href="#" class="text-secondary h1-submenu-link transition">
-                                <img src="https://cdn.countryflags.com/thumbs/spain/flag-400.png" class="submenu-img pr-2">Spain
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li id="currency-btn" class="menu-item border-bottom cursor-pointer position-relative d-flex">
-                    <div>
-                        USD
-                        <i class="fas fa-caret-down pl-3"></i>
-                    </div>
-                    <ul id="currency-menu" class="setting-item setting-item-curr position-absolute d-none">
-                        <li><a href="#" class="text-secondary h1-submenu-link transition">EUR - Euro</a></li>
-                        <li><a href="#" class="text-secondary h1-submenu-link transition">SAR - Saudi Riyal</a></li>
-                    </ul>
+                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 7, isRoom = false })"
+                       class="text-dark"
+                       style="font-size:1.4rem;font-weight:500">Carpet</a>
                 </li>
             </ul>
         </div>
@@ -197,13 +140,12 @@
     </div>
 
     <div id="bar-body-gray" class="body-gray d-none transition d-lg-none"></div>
-    <div id="cart-body-gray" class="body-gray d-none transition"></div>
 
-    <div class="container-fluid" style="padding:0 !important; margin:0 !important;">
+    <div class="container-fluid" style="padding:0 !important; margin:0 !important; background-color:#fff">
         @RenderBody()
     </div>
 
-    <div class="footer">
+    <div class="footer" style="border-top: 2px solid #f6f6f8;">
         <div class="container footer-link">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3 text-gray pt-6">
@@ -338,7 +280,6 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/header.js"></script>
     @RenderSection("scripts", required: false)
     <script>
         $('.input100').each(function () {
@@ -351,6 +292,30 @@
                 }
             })
         })
+
+
+        let bar = document.getElementById('bar');
+        let barMenu = document.getElementById('bar-menu');
+        let closeBar = document.getElementById('bar-close');
+        let barBodyGray = document.getElementById('bar-body-gray');
+        bar.addEventListener('click', checkBarMenu);
+        closeBar.addEventListener('click', checkBarMenu);
+        function checkBarMenu() {
+            let check = barMenu.getAttribute('class');
+            if (check.includes('d-none') || check.includes('bar-not-d-none')) {
+                barMenu.classList.remove('bar-not-d-none');
+                barMenu.classList.remove('d-none');
+                closeBar.classList.remove('d-none');
+                barBodyGray.classList.remove('d-none');
+                $('body').addClass('stop-scrolling')
+            }
+            else {
+                barMenu.classList.add('bar-not-d-none');
+                closeBar.classList.add('d-none');
+                barBodyGray.classList.add('d-none');
+                $('body').removeClass('stop-scrolling')
+            }
+        }
     </script>
 </body>
 </html>

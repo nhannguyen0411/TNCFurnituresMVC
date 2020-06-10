@@ -1,9 +1,4 @@
-﻿<link rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous">
-<link href="~/Styles/products.css" rel="stylesheet" />
-<link href="~/Styles/hot.css" rel="stylesheet" />
+﻿<link href="~/Styles/not-hot.css" rel="stylesheet" />
 @using TNCFurnitures.Models;
 @using PagedList.Mvc;
 @model PagedList.PagedList<NOITHAT>
@@ -12,55 +7,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container products">
-    <p>@ViewBag.Thongbao</p>
+<div class="container products" style="margin-top: 9rem;">
     <div class="row">
         @foreach (var item in Model)
         {
-            @*<div class="col-12 col-md-6 col-lg-4 text-center mt-5">
-                    <a href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })" class="product"></a>
-                    <p class="font-weight-bold text-dark mt-3 product-name">@item.TenNT</p>
-                    <p class="font-weight-bold text-dark mt-3 product-price">@item.GiaBan VNĐ</p>
-                </div>*@
-            @*<div class="col-12 col-md-6 col-lg-4 text-center mt-5 d-flex justify-content-center">
-                    <div class="card" style="width: 35rem; border-radius:2rem">
-                        <img src="~/Images/@item.AnhBia" class="product-image card-img-top align-self-center" />
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold text-dark product-name">@item.TenNT</h5>
-                            <p class="card-text text-secondary product-description">@item.MoTa</p>
-                            <p class="font-weight-bold text-dark mt-3 product-price">@item.GiaBan VNĐ</p>
-                            <a href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })"
-                               class="product btn btn-primary font-weight-bold mt-3"
-                               style="padding:1rem 3rem; font-size:1.5rem; border-radius:10px;">
-                                Details
-                            </a>
-                        </div>
-                    </div>
-                </div>*@
             <div class="h-item col-12 col-sm-6 col-lg-3">
                 <div class="position-relative">
                     <a href="#">
-                        <img src="~/Images/@item.AnhBia" style="width: 100%; height: 34rem;">
+                        <img src="~/Images/@item.AnhBia" style="width: 100%; height: 30rem;">
                     </a>
                     <div class="so-2-overlay w-100 h-100 position-absolute transition">
                         <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
                             <div class="so-2-btn transition position-absolute">
-                                <a class="so-2-link transition" href="#">Details</a>
+                                <a class="so-2-link transition" href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })" style="font-size:1.4rem;">Details</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tp-info pt-2">
-                    <p class="tp-name transition" style="font-size:1.8rem">@item.TenNT</p>
-                    <p class="tp-price" style="font-size:1.4rem">$125.00</p>
+                    <p class="tp-name transition" style="font-size:1.7rem;">@item.TenNT</p>
+                    <p class="tp-price" style="font-size:1.4rem;">@String.Format("{0:0,0}", @item.GiaBan) VNĐ</p>
                 </div>
             </div>
         }
     </div>
 </div>
-Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;
-<p>@Model <a href="#">hyhy</a></p>
-<div class="MenuTrang">
+<div class="MenuTrang d-flex justify-content-center">
     @Html.PagedListPager(Model, page => Url.Action("Products", "FurnitureStore", new { page = page, id = Model[1].MaLoaiNT, isRoom = Model.TotalItemCount > 8 ? true : false }))
 </div>
 

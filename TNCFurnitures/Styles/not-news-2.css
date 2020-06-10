@@ -17,7 +17,6 @@ ul {
 
 .news {
     padding-bottom: 3rem;
-    border-bottom: 2px solid #f6f6f8;
 }
 
 .news img {
@@ -42,5 +41,5 @@ ul {
 }
 
 .n-by, .n-about {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }

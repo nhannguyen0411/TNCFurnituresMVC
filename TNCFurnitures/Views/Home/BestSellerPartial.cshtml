@@ -11,14 +11,14 @@
                 <div class="so-2-overlay w-100 h-100 position-absolute transition">
                     <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
                         <div class="so-2-btn transition position-absolute">
-                            <a class="so-2-link transition" href="#">Details</a>
+                            <a class="so-2-link transition" href="@Url.Action("Details", "FurnitureStore", new { id = item.MaNT })">Details</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tp-info pt-2">
-                <p class="tp-name transition">@item.TenNT</p>
-                <p class="tp-price">$125.00</p>
+                <p class="tp-name transition" style="font-size:1.7rem">@item.TenNT</p>
+                <p class="tp-price" style="font-size:1.4rem">@String.Format("{0:0,0}", @item.GiaBan) VNĐ</p>
             </div>
         </div>
     }
