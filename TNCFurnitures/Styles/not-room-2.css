@@ -62,16 +62,17 @@
     background-color: #fff;
 }
 
-    .room-btn a {
-        padding: 1.2rem 7rem;
-        font-size: 1.6rem;
-        color: #000;
-    }
+.room-btn a {
+    padding: 1.2rem 7rem;
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: 500;
+}
 
-    .room-btn:hover a {
-        background-color: #56cfe1;
-        color: #fff !important;
-    }
+.room-btn:hover a {
+    background-color: #56cfe1;
+    color: #fff !important;
+}
 
 .bottom-center {
     bottom: 0;

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TNCFurnitures.Models.NOITHAT>
+
+<div id="bs-block" class="h-block row" style="padding-top:1rem;">
+    @foreach (var item in Model)
+    {
+        <div class="h-item col-12 col-sm-6 col-lg-3">
+            <div class="position-relative">
+                <a href="#">
+                    <img src="~/Images/@item.AnhBia">
+                </a>
+                <div class="so-2-overlay w-100 h-100 position-absolute transition">
+                    <div class="position-relative d-flex justify-content-center align-items-center" style="height:100%">
+                        <div class="so-2-btn transition position-absolute">
+                            <a class="so-2-link transition" href="#">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tp-info pt-2">
+                <p class="tp-name transition">@item.TenNT</p>
+                <p class="tp-price">$125.00</p>
+            </div>
+        </div>
+    }
+</div>

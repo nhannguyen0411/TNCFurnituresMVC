@@ -35,6 +35,7 @@ namespace TNCFurnitures.Controllers
             if (isRoom)
             {
                 var room = from r in db.NOITHATs where r.MaLoaiPhong == id select r;
+                ViewBag.Thongbao = "Desk";
                 return View(room.ToPagedList(pageNum, pageSize));
             }
             else

@@ -27,5 +27,12 @@ namespace TNCFurnitures.Controllers
 
             return View();
         }
+
+        public ActionResult BestSellerPartial()
+        {
+            var products = from p in db.NOITHATs where p.BestSeller == true select p;
+            var newProducts = products.Take(8).ToList();
+            return PartialView(newProducts);
+        }
     }
 }
