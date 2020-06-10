@@ -199,6 +199,10 @@
     <Content Include="Images\order.png" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\cart.png" />
+    <Content Include="Images\room1.jpg" />
+    <Content Include="Images\room2.jpg" />
+    <Content Include="Images\room3.jpg" />
+    <Content Include="Images\room4.jpg" />
     <Content Include="Images\slider1.jpg" />
     <Content Include="Images\slider2.jpg" />
     <Content Include="Images\slider3.jpg" />
@@ -253,7 +257,7 @@
     <Content Include="Styles\products.css" />
     <Content Include="Styles\order.css" />
     <Content Include="Styles\register.css" />
-    <Content Include="Styles\room.css" />
+    <Content Include="Styles\not-room.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

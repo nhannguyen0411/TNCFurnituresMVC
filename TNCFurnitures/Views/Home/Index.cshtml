@@ -1,6 +1,6 @@
 ﻿<link href="~/Styles/home.css" rel="stylesheet" />
 <link href="~/Styles/default.css" rel="stylesheet" />
-<link href="~/Styles/room.css" rel="stylesheet" />
+<link href="~/Styles/not-room.css" rel="stylesheet" />
 <link href="~/Styles/hot.css" rel="stylesheet" />
 @{ ViewBag.Title = "Home Page"; }
 
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div class="rooms">
+<div class="rooms" style="background-color:#fff !important">
     <div class="hd text-center" style="padding-bottom: 10px;">
         <h2 class="hd-title d-inline-block position-relative">ROOMS</h2>
         <div class="hd-about text-secondary font-italic">Furnitures suitable for you</div>
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="room col-12 col-md-6">
                 <div class="overflow-hidden position-relative hi">
-                    <img class="transition" src="https://st.hzcdn.com/simgs/1ab16f760122f5ad_4-2090/home-design.jpg">
+                    <img class="transition" src="~/Images/room1.jpg">
                     <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
                         <div class="room-btn">
                             <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = true })"
@@ -53,7 +53,7 @@
             </div>
             <div class="room col-12 col-md-6 ">
                 <div class="overflow-hidden position-relative hi">
-                    <img class="transition" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/living-room-9-1537479929.jpg">
+                    <img class="transition" src="~/Images/room2.jpg">
                     <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
                         <div class="room-btn">
                             <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = true })"
@@ -64,7 +64,7 @@
             </div>
             <div class="room col-12 col-md-6">
                 <div class="overflow-hidden position-relative hi">
-                    <img class="transition" src="https://images.victorianplumbing.co.uk/images/ALPSFS_nl.jpg">
+                    <img class="transition" src="~/Images/room3.jpg">
                     <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
                         <div class="room-btn">
                             <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = true })"
@@ -75,7 +75,7 @@
             </div>
             <div class="room col-12 col-md-6">
                 <div class="overflow-hidden position-relative hi">
-                    <img class="transition" src="https://www.sothebysrealty.com/extraordinary-living-blog/wp-content/uploads/2019/11/imagereader.aspx-15-2-768x512.jpeg">
+                    <img class="transition" src="~/Images/room4.jpg">
                     <div class="bottom-center w-100 d-flex justify-content-center position-absolute">
                         <div class="room-btn">
                             <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = true })" class="text-dark font-weight-bold d-flex justify-content-center align-items-center h-100 transition">Dining Room</a>
@@ -88,7 +88,7 @@
 </div>
 
 
-<div class="best-seller" style="background-color:#f6f6f8; padding-bottom:20px;">
+<div class="best-seller" style="padding-bottom:20px;">
     <div class="container">
         <div class="hd text-center" style="padding-bottom: 10px;">
             <h2 class="hd-title">HOT PRODUCTS</h2>
