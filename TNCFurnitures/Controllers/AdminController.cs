@@ -112,5 +112,33 @@ namespace TNCFurnitures.Controllers
             }
             return View(nt);
         }
+
+        [HttpGet]
+        public ActionResult DeleteFurniture(int id)
+        {
+            NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
+            ViewBag.MaNT = nt.MaNT;
+            if (nt == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(nt);
+        }
+
+        [HttpPost, ActionName("DeleteFurniture")]
+        public ActionResult Confirm(int id)
+        {
+            NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
+            ViewBag.MaNT = nt.MaNT;
+            if (nt == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.NOITHATs.DeleteOnSubmit(nt);
+            db.SubmitChanges();
+            return RedirectToAction("Furnitures");
+        }
     }
 }
