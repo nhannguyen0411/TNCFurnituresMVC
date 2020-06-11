@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - Admin page</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Styles/layout.css")
-    <link href="~/Styles/not-header-2.css" rel="stylesheet" />
+    <link href="~/Styles/not-header.css" rel="stylesheet" />
     <link href="~/Styles/not-footer.css" rel="stylesheet" />
     <link href="~/Styles/default.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/216cd63880.js"></script>
@@ -28,40 +28,18 @@
             <div class="header-2-navigation d-none d-lg-flex col-lg-6 justify-content-lg-center">
                 <ul class="dropdown d-flex">
                     <li id="home" class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = false })" class="hover text-white transition">
-                            Bed
+                        <a href="@Url.Action("Customers", "Admin")" class="hover text-white transition">
+                            Quản lý khách hàng
                         </a>
                     </li>
                     <li class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = false })" class="hover text-white position-relative transition">
-                            Desk
-                            <span class="hd-badge badge badge-pill badge-info position-absolute">New</span>
+                        <a href="@Url.Action("Producer", "Admin")" class="hover text-white position-relative transition">
+                            Quản lý nhà sản xuất
                         </a>
                     </li>
                     <li class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = false })" class="has-badge hover text-white position-relative transition">
-                            Chair
-                        </a>
-                    </li>
-                    <li class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = false })" class="has-badge hover text-white position-relative transition">
-                            Sofa
-                        </a>
-                    </li>
-                    <li class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 5, isRoom = false })" class="has-badge hover text-white position-relative transition">
-                            Wardrobe
-                        </a>
-                    </li>
-                    <li class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 6, isRoom = false })" class="has-badge hover text-white position-relative transition">
-                            Lamp
-                        </a>
-                    </li>
-                    <li class="has-menu position-relative cursor-pointer">
-                        <a href="@Url.Action("Products", "FurnitureStore", new { id = 7, isRoom = false })" class="hover text-white position-relative transition">
-                            Carpet
-                            <span class="sale-badge hd-badge badge badge-pill badge-warning text-white position-absolute">Sale</span>
+                        <a href="@Url.Action("Furnitures", "Admin")" class="has-badge hover text-white position-relative transition">
+                            Quản lý sản phẩm
                         </a>
                     </li>
                 </ul>
@@ -118,27 +96,13 @@
         <div class="bar-content">
             <ul id="menu" class="menu">
                 <li class="menu-item has-item border-bottom d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 2, isRoom = false })" class="text-dark cursor-pointer">Bed</a>
+                    <a href="@Url.Action("Customers", "Admin")" class="text-dark cursor-pointer">Quản lý khách hàng</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex position-relative">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 1, isRoom = false })" class="text-dark">Desk</a>
-                    <span class="menu-item-badge badge badge-pill badge-info position-absolute">New</span>
+                    <a href="@Url.Action("Producer", "Admin")" class="text-dark">Quản lý nhà sản xuất</a>
                 </li>
                 <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 3, isRoom = false })" class="text-dark">Chair</a>
-                </li>
-                <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 4, isRoom = false })" class="text-dark">Sofa</a>
-                </li>
-                <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 5, isRoom = false })" class="text-dark">Wardrobe</a>
-                </li>
-                <li class="menu-item has-item border-bottom cursor-pointer d-flex">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 6, isRoom = false })" class="text-dark">Lamp</a>
-                </li>
-                <li class="menu-item border-bottom cursor-pointer d-flex position-relative">
-                    <a href="@Url.Action("Products", "FurnitureStore", new { id = 7, isRoom = false })" class="text-dark">Carpet</a>
-                    <span class="menu-item-badge badge badge-pill badge-warning text-white position-absolute">Sale</span>
+                    <a href="@Url.Action("Furnitures", "Admin")" class="text-dark">Quản lý sản phẩm</a>
                 </li>
             </ul>
             <ul id="account-menu" class="account-menu d-none">

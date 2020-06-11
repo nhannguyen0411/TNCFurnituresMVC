@@ -1,0 +1,93 @@
+﻿@using TNCFurnitures.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<TNCFurnitures.Models.NOITHAT>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Furnitures";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="margin-top: 9rem; text-align: center">Furnitures Management</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateFurniture")
+</p>
+
+<table class="table">
+    <tr>
+        <th style="width: 200px">Name Furniture</th>
+        <th style="width: 100px">Price</th>
+        <th style="width: 300px">Description</th>
+        <th style="width: 120px">Image</th>
+        <th style="width: 150px">Date</th>
+        <th style="width: 120px">BestSeller</th>
+        <th style="width: 120px">Amount</th>
+        <th style="width: 100px">Furniture</th>
+        <th style="width: 200px">Room</th>
+        <th style="width: 200px">Producer</th>
+        <th style="width: 200px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Truncate(item.MoTa, 100)
+            </td>
+            <td>
+                <img width="100" height="100" src="@Url.Content("~/Images/" + item.AnhBia)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                @item.BestSeller
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAINOITHAT.TenLoaiNT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAIPHONG.TenLoaiPhong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHASANXUAT.TenNSX)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditFurniture", new { id = item.MaNT }) |
+                @Html.ActionLink("Details", "DetailsFurniture", new { id = item.MaNT }) |
+                @Html.ActionLink("Delete", "DeleteFurniture", new { id = item.MaNT })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="MenuTrang text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Furnitures", new { page = page }))
+</div>
+
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

@@ -1,0 +1,89 @@
+﻿@model TNCFurnitures.Models.NOITHAT
+
+@{
+    ViewBag.Title = "DetailsFurniture";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="margin-top: 9rem">DetailsFurniture</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Name Furniture:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenNT)
+            </dd>
+
+            <dt>
+                Price:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaBan)
+            </dd>
+
+            <dt>
+                Description:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MoTa)
+            </dd>
+
+            <dt>
+                Image:
+            </dt>
+
+            <dd>
+                <img src="@Url.Content("~/Images/" + Model.AnhBia)" width="120" />
+            </dd>
+
+            <dt>
+                Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayCapNhat)
+            </dd>
+
+            <dt>
+                Amount:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuongTon)
+            </dd>
+
+            <dt>
+                Furniture:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LOAINOITHAT.TenLoaiNT)
+            </dd>
+
+            <dt>
+                Room:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LOAIPHONG.TenLoaiPhong)
+            </dd>
+
+            <dt>
+                Producer
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NHASANXUAT.TenNSX)
+            </dd>
+
+        </dl>
+    </div>
+<p>
+    @Html.ActionLink("Edit", "EditFurniture", new { id = Model.MaNT }) |
+    @Html.ActionLink("Back to List", "Furnitures")
+</p>
