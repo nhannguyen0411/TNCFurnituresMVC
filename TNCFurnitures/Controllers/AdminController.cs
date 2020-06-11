@@ -140,5 +140,53 @@ namespace TNCFurnitures.Controllers
             db.SubmitChanges();
             return RedirectToAction("Furnitures");
         }
+        [HttpGet]
+        public ActionResult EditFurniture(int id)
+        {
+            NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
+            if (nt == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            ViewBag.MaNSX = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
+            ViewBag.MaLoaiNT = new SelectList(db.LOAINOITHATs.ToList().OrderBy(n => n.TenLoaiNT), "MaLoaiNT", "TenLoaiNT");
+            ViewBag.MaLoaiPhong = new SelectList(db.LOAIPHONGs.ToList().OrderBy(n => n.TenLoaiPhong), "MaLoaiPhong", "TenLoaiPhong");
+            return View(nt);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult EditFurniture(NOITHAT nt, HttpPostedFileBase fileUpload)
+        {
+            ViewBag.MaNSX = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
+            ViewBag.MaLoaiNT = new SelectList(db.LOAINOITHATs.ToList().OrderBy(n => n.TenLoaiNT), "MaLoaiNT", "TenLoaiNT");
+            ViewBag.MaLoaiPhong = new SelectList(db.LOAIPHONGs.ToList().OrderBy(n => n.TenLoaiPhong), "MaLoaiPhong", "TenLoaiPhong");
+            if (fileUpload == null)
+            {
+                ViewBag.Thongbao = "Choose Image, please!!!";
+                return null;
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    var fileName = Path.GetFileName(fileUpload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.Thongbao = "Image exists";
+                    }
+                    else
+                    {
+                        fileUpload.SaveAs(path);
+                    }
+                    nt.AnhBia = fileName;
+                    UpdateModel(nt);
+                    db.SubmitChanges();
+                }
+                return RedirectToAction("Furnitures");
+            }
+        }
     }
 }

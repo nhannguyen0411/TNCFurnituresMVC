@@ -1,19 +1,27 @@
 ﻿@model TNCFurnitures.Models.NOITHAT
 
 @{
-    ViewBag.Title = "CreateFurniture";
+    ViewBag.Title = "EditFurniture";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2 style="margin-top: 9rem">CreateFurniture</h2>
+<h2>EditFurniture</h2>
 
-@using (Html.BeginForm("CreateFurniture", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("EditFurniture", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaNT)
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNT, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.MaNT</div>
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.TenNT, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -33,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea name="Mota">Describe furniture</textarea>
+                <textarea name="Mota">@Model.MoTa</textarea>
             </div>
         </div>
 
@@ -46,9 +54,11 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AnhBia, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AnhBia, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                Choose new image
                 <input type="file" name="fileUpload" />
+                <img src="@Url.Content("~/Images/" + Model.AnhBia)" width="120" /> Current Image
                 @ViewBag.Thongbao
             </div>
         </div>
@@ -56,7 +66,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NgayCapNhat, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="date" name="Date" />
+                @Html.EditorFor(model => model.NgayCapNhat, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,7 +102,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
