@@ -88,14 +88,16 @@
             </div>
         </div>
 
-        <div class="form-group" style="margin-top:3rem; margin-left:5rem;">
-            <div class="col-lg-11">
-                <a href="@Url.Action("DeleteFurniture", "Admin", new { id = Model.MaNT })"
-                   class="btn btn-danger text-uppercase" style="padding:1rem 2rem; font-weight:500">
-                    Delete
-                </a>
+        @using (Html.BeginForm())
+         {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group" style="margin-top:3rem; margin-left:5rem;">
+                <div class="col-lg-11">
+                    <input type="submit" class="btn btn-danger text-uppercase" value="Delete" style="padding:1rem 2rem; font-weight:500" />
+                </div>
             </div>
-        </div>
+         }
     </div>
 </div>
 

@@ -143,7 +143,7 @@ namespace TNCFurnitures.Controllers
         }
 
         [HttpPost, ActionName("DeleteFurniture")]
-        public ActionResult Confirm(int id)
+        public ActionResult ConfirmFurniture(int id)
         {
             NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
             ViewBag.MaNT = nt.MaNT;
@@ -219,11 +219,41 @@ namespace TNCFurnitures.Controllers
                 }
             }
         }
-        public ActionResult Customer(int ? page)
+        public ActionResult Customers(int ? page)
         {
             int pageSize = 7;
             int pageNum = (page ?? 1);
             return View(db.NGUOIDUNGs.ToList().OrderBy(n => n.MaND).ToPagedList(pageNum, pageSize));
+        }
+        [HttpGet]
+        public ActionResult DeleteCustomer(int id)
+        {
+            if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            NGUOIDUNG nd = db.NGUOIDUNGs.SingleOrDefault(n => n.MaND == id);
+            ViewBag.MaND = nd.MaND;
+            if (nd == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(nd);
+        }
+        [HttpPost, ActionName("DeleteCustomer")]
+        public ActionResult ConfirmCustomer(int id)
+        {
+            NGUOIDUNG nd = db.NGUOIDUNGs.SingleOrDefault(n => n.MaND == id);
+            ViewBag.MaND = nd.MaND;
+            if (nd == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.NGUOIDUNGs.DeleteOnSubmit(nd);
+            db.SubmitChanges();
+            return RedirectToAction("Customers");
         }
     }
 }

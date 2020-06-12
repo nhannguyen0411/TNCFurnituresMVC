@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - Admin page</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Styles/layout.css")
-    <link href="~/Styles/not-header.css" rel="stylesheet" />
+    <link href="~/Styles/not-header-2.css" rel="stylesheet" />
     <link href="~/Styles/not-footer.css" rel="stylesheet" />
     <link href="~/Styles/default.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/216cd63880.js"></script>
@@ -29,17 +29,17 @@
                 <ul class="dropdown d-flex">
                     <li id="home" class="has-menu position-relative cursor-pointer">
                         <a href="@Url.Action("Customers", "Admin")" class="hover text-white transition">
-                            Quản lý khách hàng
+                            Customer Management
                         </a>
                     </li>
-                    <li class="has-menu position-relative cursor-pointer">
+                    @*<li class="has-menu position-relative cursor-pointer">
                         <a href="@Url.Action("Producer", "Admin")" class="hover text-white position-relative transition">
-                            Quản lý nhà sản xuất
+                            Order Management
                         </a>
-                    </li>
+                    </li>*@
                     <li class="has-menu position-relative cursor-pointer">
                         <a href="@Url.Action("Furnitures", "Admin")" class="has-badge hover text-white position-relative transition">
-                            Quản lý sản phẩm
+                            Furniture Management
                         </a>
                     </li>
                 </ul>

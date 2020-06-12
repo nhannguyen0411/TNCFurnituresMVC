@@ -1,0 +1,57 @@
+﻿@model TNCFurnitures.Models.NGUOIDUNG
+
+@{
+    ViewBag.Title = "DeleteCustomer";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div style="margin-left:5rem; margin-right:5rem; margin-top:9rem; border-bottom:2px solid #f6f6f8">
+        <h2>You want to delete this?</h2>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-1">Id</label>
+                <div class="col-lg-11">
+                    <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.MaND</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1">Name</label>
+                <div class="col-lg-11">
+                    <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.TenND</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1">Address</label>
+                <div class="col-lg-11">
+                    <p name="Mota" style="width:28rem;">@Model.DiaChi</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1">Phone number</label>
+                <div class="col-lg-11">
+                    <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.DienThoai</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1">Date of birth</label>
+                <div class="col-lg-11">
+                    <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.NgaySinh</div>
+                </div>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group" style="margin-top:3rem; margin-left:5rem;">
+                    <div class="col-lg-11">
+                        <input type="submit" class="btn btn-danger text-uppercase" value="Delete" style="padding:1rem 2rem; font-weight:500" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>

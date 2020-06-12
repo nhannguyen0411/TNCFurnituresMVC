@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 @model PagedList.PagedList<TNCFurnitures.Models.NGUOIDUNG>
 @{
-    ViewBag.Title = "Customer";
+    ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <link rel="stylesheet"
@@ -48,7 +48,7 @@
                     @String.Format("{0:dd/MM/yyyy}", item.NgaySinh)
                 </td>
                 <td class="text-center">
-                    @Html.ActionLink("Delete", "DeleteFurniture", new { id = item.MaND })
+                    @Html.ActionLink("Delete", "DeleteCustomer", new { id = item.MaND })
                 </td>
             </tr>
         }
