@@ -1,89 +1,98 @@
 ﻿@model TNCFurnitures.Models.NOITHAT
 
-@{
-    ViewBag.Title = "DetailsFurniture";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
+@{ ViewBag.Title = "DetailsFurniture";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
-<h2 style="margin-top: 9rem">DetailsFurniture</h2>
-    <div>
+<div style="margin-left:5rem; margin-right:5rem; margin-top:9rem; border-bottom:2px solid #f6f6f8">
+    <h2>Details</h2>
+    <div class="form-horizontal">
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                Name Furniture:
-            </dt>
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaNT)
+        <div class="form-group">
+            <label class="col-lg-1">Id</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.MaNT</div>
+            </div>
+        </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.TenNT)
-            </dd>
+        <div class="form-group">
+            <label class="col-lg-1">Name</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.TenNT</div>
+            </div>
+        </div>
 
-            <dt>
-                Price:
-            </dt>
+        <div class="form-group">
+            <label class="col-lg-1">Price</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@String.Format("{0:0,0}", @Model.GiaBan) VNĐ</div>
+            </div>
+        </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.GiaBan)
-            </dd>
+        <div class="form-group">
+            <label class="col-lg-1">Description</label>
+            <div class="col-lg-11">
+                <p name="Mota" style="width:28rem;">@Model.MoTa</p>
+            </div>
+        </div>
 
-            <dt>
-                Description:
-            </dt>
+        <div class="form-group">
+            <label class="col-lg-1">Best Seller</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.BestSeller</div>
+            </div>
+        </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.MoTa)
-            </dd>
-
-            <dt>
-                Image:
-            </dt>
-
-            <dd>
+        <div class="form-group">
+            <label class="col-lg-1">Image</label>
+            <div class="col-lg-11">
                 <img src="@Url.Content("~/Images/" + Model.AnhBia)" width="120" />
-            </dd>
+            </div>
+        </div>
 
-            <dt>
-                Date:
-            </dt>
+        <div class="form-group">
+            <label class="col-lg-1">Update date</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@String.Format("{0:dd/MM/yyyy}", @Model.NgayCapNhat)</div>
+            </div>
+        </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.NgayCapNhat)
-            </dd>
+        <div class="form-group">
+            <label class="col-lg-1">Remain</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.SoLuongTon</div>
+            </div>
+        </div>
 
-            <dt>
-                Amount:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.SoLuongTon)
-            </dd>
-
-            <dt>
-                Furniture:
-            </dt>
-
-            <dd>
+        <div class="form-group">
+            <label class="col-lg-1">Type</label>
+            <div class="col-lg-11">
                 @Html.DisplayFor(model => model.LOAINOITHAT.TenLoaiNT)
-            </dd>
+            </div>
+        </div>
 
-            <dt>
-                Room:
-            </dt>
-
-            <dd>
+        <div class="form-group">
+            <label class="col-lg-1">Room</label>
+            <div class="col-lg-11">
                 @Html.DisplayFor(model => model.LOAIPHONG.TenLoaiPhong)
-            </dd>
+            </div>
+        </div>
 
-            <dt>
-                Producer
-            </dt>
-
-            <dd>
+        <div class="form-group">
+            <label class="col-lg-1">Producer</label>
+            <div class="col-lg-11">
                 @Html.DisplayFor(model => model.NHASANXUAT.TenNSX)
-            </dd>
+            </div>
+        </div>
 
-        </dl>
+        <div class="form-group" style="margin-top:3rem; margin-left:5rem;">
+            <div class="col-lg-11">
+                <a href="@Url.Action("EditFurniture", "Admin", new { id = Model.MaNT })"
+                   class="btn btn-primary text-uppercase" style="padding:1rem 2rem; font-weight:500">
+                    Go to edit
+                </a>
+            </div>
+        </div>
     </div>
-<p>
-    @Html.ActionLink("Edit", "EditFurniture", new { id = Model.MaNT }) |
-    @Html.ActionLink("Back to List", "Furnitures")
-</p>
+</div>

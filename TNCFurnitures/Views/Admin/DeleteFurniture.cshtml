@@ -5,93 +5,97 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2 style="margin-top: 9rem">DeleteFurniture</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>NOITHAT</h4>
-    <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                Name Furniture:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.TenNT)
-            </dd>
-
-            <dt>
-                Price:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.GiaBan)
-            </dd>
-
-            <dt>
-                Description:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.MoTa)
-            </dd>
-
-            <dt>
-                Image:
-            </dt>
-
-            <dd>
-                <img src="@Url.Content("~/Images/" + Model.AnhBia)" width="120" />
-            </dd>
-
-            <dt>
-                Date:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NgayCapNhat)
-            </dd>
-
-            <dt>
-                Amount:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.SoLuongTon)
-            </dd>
-
-            <dt>
-                Furniture:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.LOAINOITHAT.TenLoaiNT)
-            </dd>
-
-            <dt>
-                Room:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.LOAIPHONG.TenLoaiPhong)
-            </dd>
-
-            <dt>
-                Producer
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NHASANXUAT.TenNSX)
-            </dd>
-
-        </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Furnitures")
+<div style="margin-left:5rem; margin-right:5rem; margin-top:9rem; border-bottom:2px solid #f6f6f8">
+    <h2>You want to delete this?</h2>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaNT)
+        <div class="form-group">
+            <label class="col-lg-1">Id</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.MaNT</div>
+            </div>
         </div>
-    }
+
+        <div class="form-group">
+            <label class="col-lg-1">Name</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.TenNT</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Price</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@String.Format("{0:0,0}", @Model.GiaBan) VNĐ</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Description</label>
+            <div class="col-lg-11">
+                <p name="Mota" style="width:28rem;">@Model.MoTa</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Best Seller</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.BestSeller</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Image</label>
+            <div class="col-lg-11">
+                <img src="@Url.Content("~/Images/" + Model.AnhBia)" width="120" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Update date</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@String.Format("{0:dd/MM/yyyy}", @Model.NgayCapNhat)</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Remain</label>
+            <div class="col-lg-11">
+                <div sytle="font-size: 18px; padding: 5px 0 0 5px">@Model.SoLuongTon</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Type</label>
+            <div class="col-lg-11">
+                @Html.DisplayFor(model => model.LOAINOITHAT.TenLoaiNT)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Room</label>
+            <div class="col-lg-11">
+                @Html.DisplayFor(model => model.LOAIPHONG.TenLoaiPhong)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-1">Producer</label>
+            <div class="col-lg-11">
+                @Html.DisplayFor(model => model.NHASANXUAT.TenNSX)
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top:3rem; margin-left:5rem;">
+            <div class="col-lg-11">
+                <a href="@Url.Action("DeleteFurniture", "Admin", new { id = Model.MaNT })"
+                   class="btn btn-danger text-uppercase" style="padding:1rem 2rem; font-weight:500">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+

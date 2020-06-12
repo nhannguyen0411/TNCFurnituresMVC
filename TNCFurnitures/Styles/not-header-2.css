@@ -53,7 +53,7 @@ ul {
         position: absolute;
         list-style: none;
         padding-left: 0rem;
-        padding-top: 1rem;
+        padding-top: 2.6rem;
         display: none;
         left: -1rem;
     }
@@ -114,14 +114,6 @@ ul {
     color: #56cfe1 !important;
 }
 
-.header-2 .submenu li {
-    width: 16.5rem;
-}
-
-.width-12 {
-    width: 12rem !important;
-}
-
 .header-2-bar {
     font-size: 2rem;
 }
@@ -147,10 +139,9 @@ ul {
 }
 
 .header-2 .submenu a {
-    padding: 1rem 0;
     display: block;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .header-2 .submenu a.text-secondary:hover {
@@ -273,8 +264,8 @@ ul {
 
 /* FOR ICON-LINK */
 .account-submenu {
-    left: -3rem !important;
-    width: 12rem;
+    left: -7rem !important;
+    width: 15rem;
     top: 3.05rem;
 }
 

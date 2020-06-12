@@ -252,7 +252,7 @@
     <Content Include="Styles\not-cart-2.css" />
     <Content Include="Styles\default.css" />
     <Content Include="Styles\not-details.css" />
-    <Content Include="Styles\not-header.css" />
+    <Content Include="Styles\not-header-2.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\home.css" />
     <Content Include="Styles\not-footer.css" />

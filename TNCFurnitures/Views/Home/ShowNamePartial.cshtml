@@ -1,14 +1,19 @@
-﻿
-@*<li class="width-12"><a href="@Url.Action("Register", "User")" class="border-bottom hover-blue transition">Create an Account</a></li>
-<li class="width-12"><a href="@Url.Action("Login", "User")" class="hover-blue transition">{@Mo}</a></li>*@
-@if(@Model != null)
+﻿@if (@Model != null)
 {
-    <p>@Model.TenND</p>
-} else
-{
-    <p>hong co</p>
+    <li class="name"><p class="name border-bottom transition" style="padding: 1rem;">@Model.TenND</p></li>
+    <li><a href="@Url.Action("Profile", "User")" class="hover-blue border-bottom transition">Profile</a></li>
+    <li><a href="@Url.Action("Logout", "User")" class="hover-blue transition">Sign out</a></li>
 }
-@*@if(@Model.TenND == null || @Model.TenND == "")
+else
 {
-    <p>Partial</p>
-}*@
+    <li><a href="@Url.Action("Register", "User")" class="border-bottom hover-blue transition">Create an Account</a></li>
+    <li><a href="@Url.Action("Login", "User")" class="hover-blue transition">Sign in</a></li>
+}
+
+<style>
+    .name {
+        font-weight:500;
+        font-style:italic;
+        margin-bottom:0;
+    }
+</style>

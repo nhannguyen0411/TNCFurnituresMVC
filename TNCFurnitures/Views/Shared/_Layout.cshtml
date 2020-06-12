@@ -6,7 +6,7 @@
     <title>TNC Furnitures</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Styles/layout.css")
-    <link href="~/Styles/not-header.css" rel="stylesheet" />
+    <link href="~/Styles/not-header-2.css" rel="stylesheet" />
     <link href="~/Styles/not-footer.css" rel="stylesheet" />
     <link href="~/Styles/default.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/216cd63880.js"></script>
@@ -68,9 +68,10 @@
                     <div class="submenu account-submenu position-absolute">
                         <div class="bg-white">
                             <ul class="one-col-content">
-                                <li class="width-12"><a href="@Url.Action("Register", "User")" class="border-bottom hover-blue transition">Create an Account</a></li>
+                                @Html.Action("ShowNamePartial", "Home")
+                                @*<li class="width-12"><a href="@Url.Action("Register", "User")" class="border-bottom hover-blue transition">Create an Account</a></li>
                                 <li class="width-12"><a href="@Url.Action("Login", "User")" class="hover-blue transition">Sign in</a></li>
-                                <li class="width-12">@Html.Action("ShowNamePartial", "Home")</li>
+                                <li class="width-12">@Html.Action("ShowNamePartial", "Home")</li>*@
                             </ul>
                         </div>
                     </div>
