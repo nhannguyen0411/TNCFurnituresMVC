@@ -1,0 +1,82 @@
+﻿@using TNCFurnitures.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<TNCFurnitures.Models.NGUOIDUNG>
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+<link href="~/Styles/furniture-admin.css" rel="stylesheet" />
+
+<h1 style="margin-top: 10rem; margin-bottom: 5rem; text-align: center; font-size:3rem">CUSTOMER MANAGEMENT</h1>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col" class="text-center">NAME</th>
+            <th scope="col" class="text-center">EMAIL</th>
+            <th scope="col" class="text-center">PASSWORD</th>
+            <th scope="col" class="text-center">ADDRESS</th>
+            <th scope="col" class="text-center">PHONE NUMBER</th>
+            <th scope="col" class="text-center">DATE OF BIRTH</th>
+            <th scope="col" class="text-center">OPTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @item.TenND
+                </td>
+                <td class="text-center">
+                    @item.Email
+                </td>
+                <td class="text-center">
+                    @item.MatKhau
+                </td>
+                <td class="text-center">
+                    @item.DiaChi
+                </td>
+                <td class="text-center">
+                    @item.DienThoai
+                </td>
+                <td class="text-center">
+                    @String.Format("{0:dd/MM/yyyy}", item.NgaySinh)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Delete", "DeleteFurniture", new { id = item.MaND })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="MenuTrang d-flex justify-content-center" style="border-bottom: 2px solid #f6f6f8">
+    @Html.PagedListPager(Model, page => Url.Action("Customer", new { page = page }))
+</div>
+
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+
+    .MenuTrang a {
+        font-size: 1.3rem;
+    }
+
+    th {
+        font-size: 1.6rem;
+    }
+
+    td {
+        font-size: 1.5rem;
+        vertical-align: middle !important;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+</style>

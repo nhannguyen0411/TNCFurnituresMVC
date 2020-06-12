@@ -99,5 +99,53 @@ namespace TNCFurnitures.Controllers
             }
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session["NguoiDung"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public ActionResult Profile(int id)
+        {
+            NGUOIDUNG nd = db.NGUOIDUNGs.SingleOrDefault(n => n.MaND == id);
+            if (nd == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(nd);
+        }
+
+        [HttpPost]
+        public ActionResult Profile(NGUOIDUNG nd)
+        {
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    var editUser = db.NGUOIDUNGs.SingleOrDefault(u => u.MaND == nd.MaND);
+                    editUser.TenND = nd.TenND;
+                    //editUser.Email = editUser.Email;
+                    editUser.MatKhau = nd.MatKhau;
+                    editUser.DiaChi = nd.DiaChi;
+                    editUser.DienThoai = nd.DienThoai;
+                    editUser.NgaySinh = nd.NgaySinh;
+                    UpdateModel(editUser);
+                    db.SubmitChanges();
+                    ViewBag.Thongbao = "Update successfully";
+                    return View();
+                }
+                catch(Exception ex)
+                {
+                    return HttpNotFound();
+                }
+            }
+            else
+            {
+                ViewBag.Thongbao = "Error";
+                return View();
+            }
+        }
     }
 }

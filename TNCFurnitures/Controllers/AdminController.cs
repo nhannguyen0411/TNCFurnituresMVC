@@ -14,7 +14,6 @@ namespace TNCFurnitures.Controllers
     {
         dbQLFurnituresDataContext db = new dbQLFurnituresDataContext();
         // GET: Admin
-        private List<NOITHAT> lstFurnitures;
         public ActionResult Index()
         {
             return View();
@@ -213,13 +212,18 @@ namespace TNCFurnitures.Controllers
                     {
                         return HttpNotFound();
                     }
-
                 }
                 else
                 {
                     return View(nt);
                 }
             }
+        }
+        public ActionResult Customer(int ? page)
+        {
+            int pageSize = 7;
+            int pageNum = (page ?? 1);
+            return View(db.NGUOIDUNGs.ToList().OrderBy(n => n.MaND).ToPagedList(pageNum, pageSize));
         }
     }
 }
