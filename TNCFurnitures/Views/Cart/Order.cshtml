@@ -15,6 +15,7 @@
 }
 
 <div class="container pt-5">
+    <p class="text-center text-danger" style="font-size: 1.4rem;">@ViewBag.Thongbao</p>
     <table class="table table-striped w-50 bang" align="center">
         @using (Html.BeginForm())
         {
@@ -34,15 +35,15 @@
                 </tr>
                 <tr style="font-size: 1.6rem;">
                     <td class="text-left  font-weight-bold field">Order date</td>
-                    <td class="text-right text-md-left">@DateTime.Now.ToShortDateString()</td>
+                    <td class="text-right text-md-left" id="NgayDat">@DateTime.Now.ToShortDateString()</td>
                 </tr>
                 <tr style="font-size: 1.6rem;">
                     <td class="text-left font-weight-bold field">Delivery data</td>
-                    <td class="text-right text-md-left"><input type="date" name="NgayGiao" /></td>
+                    <td class="text-right text-md-left"><input id="NgayGiao" type="date" name="NgayGiao" /></td>
                 </tr>
                 <tr class="text-center" style="font-size: 1.6rem;">
                     <td colspan="2">
-                        <input class="btn btn-success text-uppercase font-weight-bold mt-4"
+                        <input id="btn" class="btn btn-success text-uppercase font-weight-bold mt-4"
                                style="padding: 1rem 3rem; font-size: 1.5rem; border-radius: 10px;" type="submit" value="Confirm" />
                     </td>
                 </tr>
@@ -50,37 +51,12 @@
         }
     </table>
 </div>
-@*<table align="center">
-        @using (Html.BeginForm())
-        {
-            @Html.ValidationSummary(true)
-            <tr style="height: 40px">
-                <td>Customer name:</td>
-                <td style="font-weight: bold">@nd.TenND</td>
-            </tr>
-            <tr style="height: 40px">
-                <td>Address:</td>
-                <td style="font-weight: bold">@nd.DiaChi</td>
-            </tr>
-            <tr style="height: 40px">
-                <td>Phone number:</td>
-                <td style="font-weight: bold">@nd.DienThoai</td>
-            </tr>
-            <tr style="height: 40px">
-                <td>Order date:</td>
-                <td style="font-weight: bold">@DateTime.Now.ToShortDateString()</td>
-            </tr>
-            <tr style="height: 40px">
-                <td>Delivery data:</td>
-                <td style="font-weight: bold">
-                    <input type="date" name="NgayGiao" />
-                </td>
-            </tr>
-            <tr style="height: 40px">
-                <td></td>
-                <td>
-                    <input type="submit" value="Confirm" />
-                </td>
-            </tr>
-        }
-    </table>*@
+@*<script>
+    document.getElementById("btn").addEventListener("click", function (e) {
+        const ngaydat = new Date();
+        const ngaygiao = document.getElementById("NgayGiao").value;
+        console.log(`${ngaydat.getFullYear()}-${ngaydat.getMonth() + 1}-${ngaydat.getDate()}`, ngaygiao);
+        console.log(Date.parse(`${ngaydat.getDate()}-${ngaydat.getMonth() + 1}-${ngaydat.getFullYear()}`) == Date.parse(ngaygiao));
+        e.preventDefault();
+    })
+</script>*@

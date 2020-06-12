@@ -1,0 +1,14 @@
+﻿
+@*<li class="width-12"><a href="@Url.Action("Register", "User")" class="border-bottom hover-blue transition">Create an Account</a></li>
+<li class="width-12"><a href="@Url.Action("Login", "User")" class="hover-blue transition">{@Mo}</a></li>*@
+@if(@Model != null)
+{
+    <p>@Model.TenND</p>
+} else
+{
+    <p>hong co</p>
+}
+@*@if(@Model.TenND == null || @Model.TenND == "")
+{
+    <p>Partial</p>
+}*@

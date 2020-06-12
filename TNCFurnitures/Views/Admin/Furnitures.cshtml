@@ -19,75 +19,86 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2 style="margin-top: 9rem; text-align: center">Furnitures Management</h2>
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+<link href="~/Styles/furniture-admin.css" rel="stylesheet" />
 
-<p>
-    @Html.ActionLink("Create New", "CreateFurniture")
-</p>
+<h1 style="margin-top: 10rem; text-align: center; font-size:3rem">FURNITURE MANAGEMENT</h1>
+
+<a href="@Url.Action("CreateFurniture", "Admin")"
+   class="btn btn-primary text-uppercase font-weight-bold m-3"
+   style="font-size:1.3rem; padding:1rem 2rem">
+    Create new
+</a>
 
 <table class="table">
-    <tr>
-        <th style="width: 200px">Name Furniture</th>
-        <th style="width: 100px">Price</th>
-        <th style="width: 300px">Description</th>
-        <th style="width: 120px">Image</th>
-        <th style="width: 150px">Date</th>
-        <th style="width: 120px">BestSeller</th>
-        <th style="width: 120px">Amount</th>
-        <th style="width: 100px">Furniture</th>
-        <th style="width: 200px">Room</th>
-        <th style="width: 200px">Producer</th>
-        <th style="width: 200px"></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <thead class="thead-light">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenNT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GiaBan)
-            </td>
-            <td>
-                @Truncate(item.MoTa, 100)
-            </td>
-            <td>
-                <img width="100" height="100" src="@Url.Content("~/Images/" + item.AnhBia)" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayCapNhat)
-            </td>
-            <td>
-                @item.BestSeller
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoLuongTon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LOAINOITHAT.TenLoaiNT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LOAIPHONG.TenLoaiPhong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NHASANXUAT.TenNSX)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditFurniture", new { id = item.MaNT }) |
-                @Html.ActionLink("Details", "DetailsFurniture", new { id = item.MaNT }) |
-                @Html.ActionLink("Delete", "DeleteFurniture", new { id = item.MaNT })
-            </td>
+            <th scope="col" class="text-center">NAME</th>
+            <th scope="col" class="text-center">PRICE</th>
+            <th scope="col" class="text-center">IMAGE</th>
+            <th scope="col" class="text-center">UPDATE DATE</th>
+            <th scope="col" class="text-center">REMAIN</th>
+            <th scope="col" class="text-center">PRODUCER</th>
+            <th scope="col" class="text-center">OPTIONS</th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @item.TenNT
+                </td>
+                <td class="text-center">
+                    @String.Format("{0:0,0}", @item.GiaBan)
+                </td>
+                <td class="text-center">
+                    <img width="100" height="100" src="@Url.Content("~/Images/" + item.AnhBia)" />
+                </td>
+                <td class="text-center">
+                    @String.Format("{0:dd/MM/yyyy}", @item.NgayCapNhat)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.NHASANXUAT.TenNSX)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Edit", "EditFurniture", new { id = item.MaNT }) |
+                    @Html.ActionLink("Details", "DetailsFurniture", new { id = item.MaNT }) |
+                    @Html.ActionLink("Delete", "DeleteFurniture", new { id = item.MaNT })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
-<div class="MenuTrang text-center">
+<div class="MenuTrang d-flex justify-content-center" style="border-bottom: 2px solid #f6f6f8">
     @Html.PagedListPager(Model, page => Url.Action("Furnitures", new { page = page }))
 </div>
 
 <style>
     .MenuTrang li {
         display: inline;
+    }
+
+    .MenuTrang a {
+        font-size: 1.3rem;
+    }
+
+    th {
+        font-size: 1.6rem;
+    }
+
+    td {
+        font-size: 1.5rem;
+        vertical-align: middle !important;
+    }
+
+    a:hover {
+        text-decoration: none;
     }
 </style>

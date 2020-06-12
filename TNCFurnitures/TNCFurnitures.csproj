@@ -246,6 +246,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Styles\admin.css" />
+    <Content Include="Styles\furniture-admin.css" />
     <Content Include="Styles\not-hot.css" />
     <Content Include="Styles\not-news-2.css" />
     <Content Include="Styles\not-cart-2.css" />
@@ -360,6 +361,7 @@
     <Content Include="Views\Admin\DetailsFurniture.cshtml" />
     <Content Include="Views\Admin\DeleteFurniture.cshtml" />
     <Content Include="Views\Admin\EditFurniture.cshtml" />
+    <Content Include="Views\Home\ShowNamePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

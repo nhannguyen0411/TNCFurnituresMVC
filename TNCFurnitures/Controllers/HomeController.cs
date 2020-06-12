@@ -34,5 +34,11 @@ namespace TNCFurnitures.Controllers
             var newProducts = products.Take(8).ToList();
             return PartialView(newProducts);
         }
+
+        public ActionResult ShowNamePartial()
+        {
+            NGUOIDUNG nd = (NGUOIDUNG)Session["NguoiDung"];
+            return PartialView(nd);
+        }
     }
 }

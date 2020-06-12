@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/216cd63880.js"></script>
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body class="stop-scrolling">
+<body>
     <div class="container-fluid header-2">
         <div class="header-2-child d-flex justify-content-between">
             <div class="header-2-bar d-lg-none d-flex text-white align-items-center justify-content-start col-4 p-0">
@@ -69,7 +69,8 @@
                         <div class="bg-white">
                             <ul class="one-col-content">
                                 <li class="width-12"><a href="@Url.Action("Register", "User")" class="border-bottom hover-blue transition">Create an Account</a></li>
-                                <li class="width-12"><a href="@Url.Action("Login", "User")" class="hover-blue transition">Sign In</a></li>
+                                <li class="width-12"><a href="@Url.Action("Login", "User")" class="hover-blue transition">Sign in</a></li>
+                                <li class="width-12">@Html.Action("ShowNamePartial", "Home")</li>
                             </ul>
                         </div>
                     </div>
@@ -307,13 +308,13 @@
                 barMenu.classList.remove('d-none');
                 closeBar.classList.remove('d-none');
                 barBodyGray.classList.remove('d-none');
-                $('body').addClass('stop-scrolling')
+                //$('body').addClass('stop-scrolling')
             }
             else {
                 barMenu.classList.add('bar-not-d-none');
                 closeBar.classList.add('d-none');
                 barBodyGray.classList.add('d-none');
-                $('body').removeClass('stop-scrolling')
+                //$('body').removeClass('stop-scrolling')
             }
         }
     </script>

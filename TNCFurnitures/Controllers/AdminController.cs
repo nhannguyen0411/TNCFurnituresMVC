@@ -14,12 +14,17 @@ namespace TNCFurnitures.Controllers
     {
         dbQLFurnituresDataContext db = new dbQLFurnituresDataContext();
         // GET: Admin
+        private List<NOITHAT> lstFurnitures;
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Furnitures(int? page)
         {
+            if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             int pageSize = 7;
             int pageNum = (page ?? 1);
             return View(db.NOITHATs.ToList().OrderBy(n => n.MaNT).ToPagedList(pageNum, pageSize));
@@ -51,7 +56,7 @@ namespace TNCFurnitures.Controllers
                 {
                     ViewBag.Thongbao = "Login successful!";
                     Session["NguoiQuanTri"] = nqt;
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Furnitures", "Admin");
                 }
                 else
                 {
@@ -63,6 +68,10 @@ namespace TNCFurnitures.Controllers
         [HttpGet]
         public ActionResult CreateFurniture()
         {
+            if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             ViewBag.MaNSX = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
             ViewBag.MaLoaiNT = new SelectList(db.LOAINOITHATs.ToList().OrderBy(n => n.TenLoaiNT), "MaLoaiNT", "TenLoaiNT");
             ViewBag.MaLoaiPhong = new SelectList(db.LOAIPHONGs.ToList().OrderBy(n => n.TenLoaiPhong), "MaLoaiPhong", "TenLoaiPhong");
@@ -103,6 +112,10 @@ namespace TNCFurnitures.Controllers
         }
         public ActionResult DetailsFurniture(int id)
         {
+            if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
             ViewBag.MaNT = nt.MaNT;
             if (nt == null)
@@ -116,6 +129,10 @@ namespace TNCFurnitures.Controllers
         [HttpGet]
         public ActionResult DeleteFurniture(int id)
         {
+            if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
             ViewBag.MaNT = nt.MaNT;
             if (nt == null)
@@ -143,6 +160,10 @@ namespace TNCFurnitures.Controllers
         [HttpGet]
         public ActionResult EditFurniture(int id)
         {
+            if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
             if (nt == null)
             {
@@ -171,21 +192,33 @@ namespace TNCFurnitures.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var fileName = Path.GetFileName(fileUpload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                    if (System.IO.File.Exists(path))
+                    try
                     {
-                        ViewBag.Thongbao = "Image exists";
+                        var fileName = Path.GetFileName(fileUpload.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                        if (System.IO.File.Exists(path))
+                        {
+                            ViewBag.Thongbao = "Image exists";
+                        }
+                        else
+                        {
+                            fileUpload.SaveAs(path);
+                        }
+                        nt.AnhBia = fileName;
+                        UpdateModel(nt);
+                        db.SubmitChanges();
+                        return View("Furnitures", "Admin");
                     }
-                    else
+                    catch(Exception ex)
                     {
-                        fileUpload.SaveAs(path);
+                        return HttpNotFound();
                     }
-                    nt.AnhBia = fileName;
-                    UpdateModel(nt);
-                    db.SubmitChanges();
+
                 }
-                return RedirectToAction("Furnitures");
+                else
+                {
+                    return View(nt);
+                }
             }
         }
     }

@@ -160,7 +160,13 @@ namespace TNCFurnitures.Controllers
             List<Cart> lstCart = GetTheCart();
             ddh.MaND = nd.MaND;
             ddh.NgayDat = DateTime.Now;
-            var NgayGiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            var NgayDD = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+            var NgayGiao = String.Format("{0:dd/MM/yyyy}", collection["NgayGiao"]);
+            if(DateTime.Compare(DateTime.Parse(NgayGiao), DateTime.Parse(NgayDD)) < 0)
+            {
+                ViewBag.Thongbao = "Wrong date time!!!";
+                return View("Order");
+            }
             ddh.NgayGiao = DateTime.Parse(NgayGiao);
             ddh.TinhTrangGiaoHang = false;
             ddh.DaThanhToan = false;
