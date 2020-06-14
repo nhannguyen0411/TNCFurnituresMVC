@@ -100,10 +100,18 @@ namespace TNCFurnitures.Controllers
             return View();
         }
 
-        public ActionResult Logout()
+        public ActionResult Logout(bool isAdmin)
         {
-            Session["NguoiDung"] = null;
-            return RedirectToAction("Index", "Home");
+            if(isAdmin)
+            {
+                Session["NguoiQuanTri"] = null;
+                return RedirectToAction("Furnitures", "Admin");
+            }
+            else
+            {
+                Session["NguoiDung"] = null;
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpGet]
         public ActionResult Profile(int id)
@@ -127,7 +135,7 @@ namespace TNCFurnitures.Controllers
                     var editUser = db.NGUOIDUNGs.SingleOrDefault(u => u.MaND == nd.MaND);
                     editUser.TenND = nd.TenND;
                     //editUser.Email = editUser.Email;
-                    editUser.MatKhau = nd.MatKhau;
+                    //editUser.MatKhau = nd.MatKhau;
                     editUser.DiaChi = nd.DiaChi;
                     editUser.DienThoai = nd.DienThoai;
                     editUser.NgaySinh = nd.NgaySinh;

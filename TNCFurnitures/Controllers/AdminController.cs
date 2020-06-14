@@ -255,5 +255,11 @@ namespace TNCFurnitures.Controllers
             db.SubmitChanges();
             return RedirectToAction("Customers");
         }
+
+        public ActionResult ShowNamePartial()
+        {
+            NGUOIQUANTRI nqt = (NGUOIQUANTRI)Session["NguoiQuanTri"];
+            return PartialView(nqt);
+        }
     }
 }

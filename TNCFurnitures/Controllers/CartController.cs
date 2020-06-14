@@ -93,16 +93,6 @@ namespace TNCFurnitures.Controllers
             }
             return RedirectToAction("Cart");
         }
-        public ActionResult UpdateTheCart(int iMaSP, FormCollection f)
-        {
-            List<Cart> lstCart = GetTheCart();
-            Cart sp = lstCart.SingleOrDefault(n => n.iMaNT == iMaSP);
-            if (sp != null)
-            {
-                sp.iSoLuong = int.Parse(f["txtSoluong"].ToString());
-            }
-            return RedirectToAction("Cart");
-        }
 
         public ActionResult PlusItem(int iMaSP)
         {

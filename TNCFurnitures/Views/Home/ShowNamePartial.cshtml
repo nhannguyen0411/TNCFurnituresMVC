@@ -2,7 +2,7 @@
 {
     <li class="name"><p class="name border-bottom transition" style="padding: 1rem;">@Model.TenND</p></li>
     <li><a href="@Url.Action("Profile", "User", new { id = Model.MaND })" class="hover-blue border-bottom transition">Profile</a></li>
-    <li><a href="@Url.Action("Logout", "User")" class="hover-blue transition">Sign out</a></li>
+    <li><a href="@Url.Action("Logout", "User", new { isAdmin = false })" class="hover-blue transition">Sign out</a></li>
 }
 else
 {
