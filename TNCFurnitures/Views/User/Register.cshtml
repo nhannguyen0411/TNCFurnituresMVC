@@ -1,18 +1,19 @@
-﻿<link href="~/Styles/register.css" rel="stylesheet" />
+﻿<link href="~/Styles/not-register.css" rel="stylesheet" />
 <link href="~/Styles/default.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Register";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "";
 }
 
 <div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
+    <div class="container-login100" style="padding: 0; background-image: url(https://images.wallpaperscraft.com/image/living_room_sofa_furniture_style_75503_1920x1080.jpg); background-position:center;
+">
+        <div class="wrap-login100" style="padding: 30px 50px;">
             @using (Html.BeginForm())
             {
             <form class="login100-form validate-form">
                 <span class="login100-form-title">
-                    <img src="~/Images/new-logo-2.jpg" style="width: 70%; height: 8rem; margin: 3rem 0;" />
+                    <img src="~/Images/new-logo-2.jpg" style="width: 70%; margin-bottom: 30px;" />
                 </span>
                 <span class="login100-form-title">
                     <i class="zmdi zmdi-font"></i>
@@ -75,6 +76,56 @@
 
 <div id="dropDownSelect1"></div>
 <script>
+    document.getElementById("email").addEventListener("blur", function (e) {
+        console.log(document.getElementById("email").value);
+        if (document.getElementById("email").value != "") {
+            document.getElementById("email").classList.add('has-val');
+        }
+        else {
+            document.getElementById("email").classList.remove('has-val');
+        }
+    })
+
+    document.getElementById("password").addEventListener("blur", function (e) {
+        console.log(document.getElementById("password").value);
+        if (document.getElementById("password").value != "") {
+            document.getElementById("password").classList.add('has-val');
+        }
+        else {
+            document.getElementById("password").classList.remove('has-val');
+        }
+    })
+
+    document.getElementById("phone").addEventListener("blur", function (e) {
+        console.log(document.getElementById("phone").value);
+        if (document.getElementById("phone").value != "") {
+            document.getElementById("phone").classList.add('has-val');
+        }
+        else {
+            document.getElementById("phone").classList.remove('has-val');
+        }
+    })
+
+    document.getElementById("address").addEventListener("blur", function (e) {
+        console.log(document.getElementById("address").value);
+        if (document.getElementById("address").value != "") {
+            document.getElementById("address").classList.add('has-val');
+        }
+        else {
+            document.getElementById("address").classList.remove('has-val');
+        }
+    })
+
+    document.getElementById("name").addEventListener("blur", function (e) {
+        console.log(document.getElementById("name").value);
+        if (document.getElementById("name").value != "") {
+            document.getElementById("name").classList.add('has-val');
+        }
+        else {
+            document.getElementById("name").classList.remove('has-val');
+        }
+    })
+
     const inputEmail = document.getElementById("valid-email");
     const inputPassword = document.getElementById("valid-password");
     const inputName = document.getElementById("valid-name");

@@ -116,6 +116,11 @@ namespace TNCFurnitures.Controllers
         [HttpGet]
         public ActionResult Profile(int id)
         {
+            if (Session["NguoiDung"] == null || Session["NguoiDung"].ToString() == "")
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             NGUOIDUNG nd = db.NGUOIDUNGs.SingleOrDefault(n => n.MaND == id);
             if (nd == null)
             {
@@ -133,7 +138,7 @@ namespace TNCFurnitures.Controllers
                 try
                 {
                     var editUser = db.NGUOIDUNGs.SingleOrDefault(u => u.MaND == nd.MaND);
-                    editUser.TenND = nd.TenND;
+                    editUser.TenND = nd.TenND; 
                     //editUser.Email = editUser.Email;
                     //editUser.MatKhau = nd.MatKhau;
                     editUser.DiaChi = nd.DiaChi;

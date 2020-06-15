@@ -30,7 +30,7 @@ namespace TNCFurnitures.Controllers
 
         public ActionResult Products(int ? page, int id, bool isRoom)
         {
-            int pageSize = 5;
+            int pageSize = 8;
             int pageNum = (page ?? 1);
             if (isRoom)
             {

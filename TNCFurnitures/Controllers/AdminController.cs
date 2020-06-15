@@ -159,39 +159,33 @@ namespace TNCFurnitures.Controllers
         [HttpGet]
         public ActionResult EditFurniture(int id)
         {
-            if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
-            {
-                return RedirectToAction("Login", "Admin");
-            }
+            //if (Session["NguoiQuanTri"] == null || Session["NguoiQuanTri"].ToString() == "")
+            //{
+            //    return RedirectToAction("Login", "Admin");
+            //}
             NOITHAT nt = db.NOITHATs.SingleOrDefault(n => n.MaNT == id);
             if (nt == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            ViewBag.MaNSX = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
-            ViewBag.MaLoaiNT = new SelectList(db.LOAINOITHATs.ToList().OrderBy(n => n.TenLoaiNT), "MaLoaiNT", "TenLoaiNT");
-            ViewBag.MaLoaiPhong = new SelectList(db.LOAIPHONGs.ToList().OrderBy(n => n.TenLoaiPhong), "MaLoaiPhong", "TenLoaiPhong");
+            //ViewBag.MaNSX = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
+            //ViewBag.MaLoaiNT = new SelectList(db.LOAINOITHATs.ToList().OrderBy(n => n.TenLoaiNT), "MaLoaiNT", "TenLoaiNT");
+            //ViewBag.MaLoaiPhong = new SelectList(db.LOAIPHONGs.ToList().OrderBy(n => n.TenLoaiPhong), "MaLoaiPhong", "TenLoaiPhong");
             return View(nt);
         }
-
         [HttpPost]
-        [ValidateInput(false)]
         public ActionResult EditFurniture(NOITHAT nt, HttpPostedFileBase fileUpload)
         {
-            ViewBag.MaNSX = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
-            ViewBag.MaLoaiNT = new SelectList(db.LOAINOITHATs.ToList().OrderBy(n => n.TenLoaiNT), "MaLoaiNT", "TenLoaiNT");
-            ViewBag.MaLoaiPhong = new SelectList(db.LOAIPHONGs.ToList().OrderBy(n => n.TenLoaiPhong), "MaLoaiPhong", "TenLoaiPhong");
-            if (fileUpload == null)
+            if (ModelState.IsValid)
             {
-                ViewBag.Thongbao = "Choose Image, please!!!";
-                return null;
-            }
-            else
-            {
-                if (ModelState.IsValid)
+                try
                 {
-                    try
+                    //ViewBag.MaNSX = new SelectList(db.NHASANXUATs.ToList().OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
+                    //ViewBag.MaLoaiNT = new SelectList(db.LOAINOITHATs.ToList().OrderBy(n => n.TenLoaiNT), "MaLoaiNT", "TenLoaiNT");
+                    //ViewBag.MaLoaiPhong = new SelectList(db.LOAIPHONGs.ToList().OrderBy(n => n.TenLoaiPhong), "MaLoaiPhong", "TenLoaiPhong");
+                    var editFurniture = db.NOITHATs.SingleOrDefault(f => f.MaNT == nt.MaNT);
+                    if(fileUpload != null)
                     {
                         var fileName = Path.GetFileName(fileUpload.FileName);
                         var path = Path.Combine(Server.MapPath("~/Images"), fileName);
@@ -203,20 +197,27 @@ namespace TNCFurnitures.Controllers
                         {
                             fileUpload.SaveAs(path);
                         }
-                        nt.AnhBia = fileName;
-                        UpdateModel(nt);
-                        db.SubmitChanges();
-                        return View("Furnitures", "Admin");
+                        editFurniture.AnhBia = fileName;
                     }
-                    catch(Exception ex)
-                    {
-                        return HttpNotFound();
-                    }
+                    string tes = Convert.ToString(nt.GiaBan);
+                    decimal test = decimal.Parse(tes);
+                    editFurniture.TenNT = nt.TenNT;
+                    editFurniture.SoLuongTon = nt.SoLuongTon;
+                    editFurniture.NgayCapNhat = DateTime.Parse(String.Format("{0:dd/MM/yyyy}", DateTime.Now));
+                    editFurniture.BestSeller = nt.BestSeller;
+                    editFurniture.GiaBan = test;
+                    UpdateModel(editFurniture);
+                    db.SubmitChanges();
+                    return RedirectToAction("Furnitures", "Admin");
                 }
-                else
+                catch (Exception ex)
                 {
-                    return View(nt);
+                    return HttpNotFound();
                 }
+            }
+            else
+            {
+                return View();
             }
         }
         public ActionResult Customers(int ? page)

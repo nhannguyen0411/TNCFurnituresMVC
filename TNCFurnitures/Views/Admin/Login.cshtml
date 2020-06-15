@@ -15,13 +15,13 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="container-login100">
-        <div class="wrap-login100">
+    <div class="container-login100" style="padding:0">
+        <div class="wrap-login100" style="padding:30px 50px;">
             @using (Html.BeginForm())
             {
                 <form id="" class="login100-form validate-form">
                     <span class="login100-form-title">
-                        <img src="~/Images/new-logo-2.jpg" style="width: 70%; margin: 3rem 0;" />
+                        <img src="~/Images/new-logo-2.jpg" style="width: 70%; margin-bottom: 30px;" />
                     </span>
                     <span class="login100-form-title">
                         <i class="zmdi zmdi-font"></i>
@@ -50,16 +50,6 @@
                                 Login
                             </button>
                         </div>
-                    </div>
-
-                    <div class="text-center pt-3">
-                        <span class="txt1">
-                            New to TNCFurnitures?
-                        </span>
-
-                        <a class="txt2" href="#">
-                            Sign up
-                        </a>
                     </div>
                 </form>
             }
@@ -91,7 +81,6 @@
         const inputEmail = document.getElementById("valid-email");
         const inputPassword = document.getElementById("valid-pass");
         document.getElementById("btn").addEventListener("click", function (e) {
-            alert("Eat event");
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             if (!email && !password) {

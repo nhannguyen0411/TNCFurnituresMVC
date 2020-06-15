@@ -257,7 +257,7 @@
     <Content Include="Styles\home.css" />
     <Content Include="Styles\not-footer.css" />
     <Content Include="Styles\order.css" />
-    <Content Include="Styles\register.css" />
+    <Content Include="Styles\not-register.css" />
     <Content Include="Styles\not-room-2.css" />
     <Content Include="tinymce\changelog.txt" />
     <Content Include="tinymce\js\tinymce\icons\default\icons.min.js" />
@@ -360,12 +360,12 @@
     <Content Include="tinymce\js\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
     <Content Include="Views\Admin\DetailsFurniture.cshtml" />
     <Content Include="Views\Admin\DeleteFurniture.cshtml" />
-    <Content Include="Views\Admin\EditFurniture.cshtml" />
     <Content Include="Views\Home\ShowNamePartial.cshtml" />
     <Content Include="Views\Admin\Customers.cshtml" />
     <Content Include="Views\User\Profile.cshtml" />
     <Content Include="Views\Admin\DeleteCustomer.cshtml" />
     <Content Include="Views\Admin\ShowNamePartial.cshtml" />
+    <Content Include="Views\Admin\EditFurniture.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
